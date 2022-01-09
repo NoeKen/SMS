@@ -12,6 +12,10 @@ import { ForgotpwdComponent } from './forgotpwd/forgotpwd.component';
   ],
   imports: [
     CommonModule
+  ],
+  exports: [
+    SigninComponent,
+    ForgotpwdComponent
   ]
 })
 export class AuthenticationModule { }

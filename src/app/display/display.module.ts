@@ -14,6 +14,11 @@ import { MainComponent } from './main/main.component';
   ],
   imports: [
     CommonModule
+  ],
+  exports: [
+    HeaderComponent,
+    FooterComponent,
+    MainComponent
   ]
 })
 export class DisplayModule { }
