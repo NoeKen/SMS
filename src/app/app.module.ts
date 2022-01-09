@@ -10,12 +10,14 @@ import { MDBBootstrapModule,MDBRootModule } from 'angular-bootstrap-md';
 import { FooterComponent } from './footer/footer.component';
 import { ToolbarComponent } from './toolbar/toolbar.component';
 import { SideBarComponent } from './side-bar/side-bar.component';
+import { AuthenticationComponent } from './authentication/authentication.component';
 @NgModule({
   declarations: [
     AppComponent,
     FooterComponent,
     ToolbarComponent,
-    SideBarComponent
+    SideBarComponent,
+    AuthenticationComponent
   ],
   imports: [
     BrowserModule,
