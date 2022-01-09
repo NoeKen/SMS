@@ -1,3 +1,18 @@
+<app-header ></app-header>
+
+
+  <mat-sidenav-container>
+    <mat-sidenav #sidenav mode="side" opened>
+      <app-sidenav></app-sidenav>
+    </mat-sidenav>
+    
+    <mat-sidenav-content>
+      <button (click)="sidenav.toggle()"> <mat-icon>menu</mat-icon></button>
+      <router-outlet></router-outlet>
+       
+    </mat-sidenav-content>
+</mat-sidenav-container>
+
 
 <div class="content" role="main">
   <svg id="clouds" xmlns="http://www.w3.org/2000/svg" width="2611.084" height="485.677" viewBox="0 0 2611.084 485.677">
@@ -6,6 +21,6 @@
   </svg>
 </div>
 
-<app-header></app-header>
-<router-outlet></router-outlet>
+
+
 <app-footer></app-footer>

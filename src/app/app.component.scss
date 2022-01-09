@@ -1,11 +1,3 @@
-.content {
-    kdisplay: flex;
-    margin: 82px auto 32px;
-    padding: 0 16px;
-    max-width: 960px;
-    kflex-direction: column;
-    align-items: center;
-  }
 
   svg#clouds {
     position: fixed;
@@ -14,3 +6,26 @@
     z-index: -10;
     width: 1920px;
   }
+
+
+mat-drawer {
+    width: 260px;
+    
+}
+
+mat-drawer-container {
+    height: 100%;
+}
+
+mat-sidenav-container {
+  height: 100%;
+}
+
+mat-sidenav-content, mat-sidenav {
+  padding: 16px;
+}
+
+mat-sidenav {
+  background-color: lightblue;
+  width: 260px;
+}

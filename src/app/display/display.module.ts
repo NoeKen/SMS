@@ -3,22 +3,28 @@ import { CommonModule } from '@angular/common';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { MainComponent } from './main/main.component';
-
+import { MaterialcmpModule } from '../materialcmp/materialcmp.module';
+import { SidenavComponent } from './sidenav/sidenav.component';
+import { RouterModule } from '@angular/router';
 
 
 @NgModule({
   declarations: [
     HeaderComponent,
     FooterComponent,
-    MainComponent
+    MainComponent,
+    SidenavComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    MaterialcmpModule,
+    RouterModule
   ],
   exports: [
     HeaderComponent,
     FooterComponent,
-    MainComponent
+    MainComponent,
+    SidenavComponent
   ]
 })
 export class DisplayModule { }

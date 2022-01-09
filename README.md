@@ -41,3 +41,7 @@ the modules and their content compoenets are :
 -> persones [peronel, students]
 
 The service part shall be organised as time goes on
+
+
+## The materialcmp modules
+This module serves only to import material components
