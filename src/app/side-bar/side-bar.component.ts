@@ -1,20 +1,21 @@
-import { BreakpointObserver } from '@angular/cdk/layout';
-import { Component, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatSidenav } from '@angular/material/sidenav';
+import { BreakpointObserver } from '@angular/cdk/layout';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  selector: 'app-side-bar',
+  templateUrl: './side-bar.component.html',
+  styleUrls: ['./side-bar.component.scss']
 })
-export class AppComponent {
-  title = 'School';
+export class SideBarComponent implements OnInit {
+
+
   @ViewChild(MatSidenav)
   sidenav!: MatSidenav;
 
   constructor(private observer: BreakpointObserver) { }
 
-  ngAfterViewInit(): void {
+  ngOnInit(): void {
     this.observer.observe([' (max-width: 800px) ']).subscribe((res)=>{
       if(res.matches){
         this.sidenav.mode='over';
@@ -25,4 +26,9 @@ export class AppComponent {
       }
     })
   }
+
+  // ngAfterViewInit(){
+
+  // }
+
 }
