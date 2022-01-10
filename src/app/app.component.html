@@ -8,8 +8,12 @@
      </mat-icon>
   </button>
   <div>
-    <img src="../assets/logo.png" class="logo" />
+    <img src="../assets/logo.png" class="logo"  />
     School
+  </div>
+  <div class="auth-option">
+    <button mat-button class="menu-button" routerLink="signin"> Login</button>
+    <button mat-button class="menu-button" routerLink="register"> Signup</button>
   </div>
 
 </mat-toolbar>
@@ -23,33 +27,58 @@
 
     <mat-divider></mat-divider>
 
-    <button mat-button class="menu-button">
-        <mat-icon>home</mat-icon>
-        <span routerLink="/authentication" >login</span>
+    <button mat-button class="menu-button" routerLink="/classes">
+        <!-- <mat-icon>help</mat-icon> -->
+        <span>classes</span>
     </button>
-    <button mat-button class="menu-button">
-        <mat-icon>person</mat-icon>
-        <span>Profile</span>
+
+    <button mat-button class="menu-button" routerLink="/personels">
+        <!-- <mat-icon>help</mat-icon> -->
+        <span>Personnel</span>
     </button>
-    <button mat-button class="menu-button">
-        <mat-icon>info</mat-icon>
-        <span>About</span>
+
+    <button mat-button class="menu-button" routerLink="/students">
+        <!-- <mat-icon>help</mat-icon> -->
+        <span>Students</span>
+    </button>
+
+    <button mat-button class="menu-button" routerLink="/assignation">
+        <!-- <mat-icon>help</mat-icon> -->
+        <span>Assignation</span>
+    </button>
+
+    <button mat-button class="menu-button" routerLink="/notes">
+        <!-- <mat-icon>help</mat-icon> -->
+        <span>Notes</span>
+    </button>
+
+    <button mat-button class="menu-button" routerLink="/reports">
+        <!-- <mat-icon>help</mat-icon> -->
+        <span>Reports</span>
     </button>
 
     <mat-divider></mat-divider>
 
-    <button mat-button class="menu-button">
+    <button mat-button class="menu-button" routerLink="/about">
+        <!-- <mat-icon>help</mat-icon> -->
+        <span>About</span>
+    </button>
+
+    <button mat-button class="menu-button" routerLink="/classes">
         <mat-icon>help</mat-icon>
         <span>Help</span>
     </button>
+
+
   </mat-sidenav>
 
   <mat-sidenav-content >
     <div class="content mat-elevation-z4 alert alert-primary" role="alert">
-      <div routerLink="/authentication">
+      <!-- <div routerLink="/authentication">
         Main content
-        <!-- <app-authentication></app-authentication> -->
-      </div>
+        <app-authentication></app-authentication>
+      </div> -->
+      <router-outlet></router-outlet>
     </div>
   </mat-sidenav-content>
 </mat-sidenav-container>
@@ -61,6 +90,3 @@
   </svg>
 
 </div> -->
-
-
-<router-outlet></router-outlet>
