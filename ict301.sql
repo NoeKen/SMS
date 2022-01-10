@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Jan 10, 2022 at 09:16 AM
+-- Generation Time: Jan 10, 2022 at 11:40 AM
 -- Server version: 10.4.10-MariaDB
 -- PHP Version: 7.3.12
 
@@ -76,11 +76,11 @@ DROP TABLE IF EXISTS `eleve`;
 CREATE TABLE IF NOT EXISTS `eleve` (
   `Nom` varchar(20) NOT NULL,
   `Matricule` varchar(20) NOT NULL,
-  `pension` varchar(11) NOT NULL,
   `class_id` int(11) NOT NULL,
+  `id_pension` varchar(10) NOT NULL,
   PRIMARY KEY (`Matricule`),
-  KEY `eleve_id_pension_fr` (`pension`),
-  KEY `eleve_id_class_fr` (`class_id`)
+  KEY `eleve_id_class_fr` (`class_id`),
+  KEY `eleve_id_pension_fr` (`id_pension`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -141,12 +141,7 @@ DROP TABLE IF EXISTS `notes`;
 CREATE TABLE IF NOT EXISTS `notes` (
   `id_note` varchar(11) NOT NULL,
   `id_matiere` varchar(15) NOT NULL,
-  `Seq1` int(11) NOT NULL,
-  `Seq2` int(11) NOT NULL,
-  `Seq3` int(11) NOT NULL,
-  `Seq4` int(11) NOT NULL,
-  `Seq5` int(11) NOT NULL,
-  `Seq6` int(11) NOT NULL,
+  `value` int(11) NOT NULL,
   PRIMARY KEY (`id_note`),
   KEY `note_intitule_id_fr` (`id_matiere`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -165,6 +160,19 @@ CREATE TABLE IF NOT EXISTS `pension` (
   PRIMARY KEY (`id_pension`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `sequence`
+--
+
+DROP TABLE IF EXISTS `sequence`;
+CREATE TABLE IF NOT EXISTS `sequence` (
+  `seq_id` int(11) NOT NULL,
+  `id_note` varchar(11) NOT NULL,
+  KEY `sequence_id_note` (`id_note`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
 --
 -- Constraints for dumped tables
 --
@@ -179,7 +187,7 @@ ALTER TABLE `classe`
 -- Constraints for table `eleve`
 --
 ALTER TABLE `eleve`
-  ADD CONSTRAINT `eleve_id_class_fr` FOREIGN KEY (`class_id`) REFERENCES `classe` (`class_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `eleve_id_pension_fr` FOREIGN KEY (`id_pension`) REFERENCES `pension` (`id_pension`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `enseignant`
@@ -204,6 +212,12 @@ ALTER TABLE `matiere`
 --
 ALTER TABLE `notes`
   ADD CONSTRAINT `note_intitule_id_fr` FOREIGN KEY (`id_matiere`) REFERENCES `matiere` (`intitule`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `sequence`
+--
+ALTER TABLE `sequence`
+  ADD CONSTRAINT `sequence_id_note` FOREIGN KEY (`id_note`) REFERENCES `notes` (`id_note`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
