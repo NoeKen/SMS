@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Jan 05, 2022 at 03:18 PM
+-- Generation Time: Jan 10, 2022 at 09:16 AM
 -- Server version: 10.4.10-MariaDB
 -- PHP Version: 7.3.12
 
@@ -30,9 +30,10 @@ SET time_zone = "+00:00";
 
 DROP TABLE IF EXISTS `adminstratif`;
 CREATE TABLE IF NOT EXISTS `adminstratif` (
-  `nom` varchar(20) NOT NULL,
+  `id_admin` int(20) NOT NULL AUTO_INCREMENT,
   `tel` bigint(20) NOT NULL,
-  PRIMARY KEY (`nom`)
+  `name` varchar(255) NOT NULL,
+  PRIMARY KEY (`id_admin`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -108,7 +109,9 @@ CREATE TABLE IF NOT EXISTS `etablissement` (
   `nom` varchar(11) NOT NULL,
   `numeroEts` int(11) NOT NULL,
   `ville` varchar(11) NOT NULL,
-  PRIMARY KEY (`nom`)
+  `admin_id` int(11) NOT NULL,
+  PRIMARY KEY (`nom`),
+  KEY `admin_id_fk` (`admin_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -183,6 +186,12 @@ ALTER TABLE `eleve`
 --
 ALTER TABLE `enseignant`
   ADD CONSTRAINT `enseignant_id_intitule_fr` FOREIGN KEY (`id_matiere`) REFERENCES `matiere` (`intitule`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `etablissement`
+--
+ALTER TABLE `etablissement`
+  ADD CONSTRAINT `admin_id_fk` FOREIGN KEY (`admin_id`) REFERENCES `adminstratif` (`id_admin`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `matiere`
