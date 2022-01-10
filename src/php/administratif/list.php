@@ -16,8 +16,8 @@
             # code...
         } 
         
-        print_r($admin);
-       // echo json_encode($admin);
+       // print_r($admin);
+        echo json_encode($admin);
         # code...
     }
     else {

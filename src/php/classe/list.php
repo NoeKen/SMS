@@ -17,8 +17,8 @@
             # code...
         } 
         
-        print_r($classe);
-       // echo json_encode($classe);
+       // print_r($classe);
+        echo json_encode($classe);
         # code...
     }
     else {

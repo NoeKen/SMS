@@ -16,8 +16,8 @@
             # code...
         } 
         
-        print_r($teacher);
-       // echo json_encode($teacher);
+       // print_r($teacher);
+        echo json_encode($teacher);
         # code...
     }
     else {

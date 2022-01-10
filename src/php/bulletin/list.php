@@ -16,8 +16,8 @@
             # code...
         } 
         
-        print_r($bulletin);
-       // echo json_encode($bulletin);
+       // print_r($bulletin);
+        echo json_encode($bulletin);
         # code...
     }
     else {
