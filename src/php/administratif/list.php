@@ -3,7 +3,7 @@
     require 'connect.php';
     error_reporting(E_ERROR);
     $admin = [];
-    $sql = "SELECT + FROM administratif";
+    $sql = "SELECT * FROM adminstratif";
 
     if ($result = mysqli_query($con, $sql)) {
         $cr = 0;
@@ -16,12 +16,14 @@
             # code...
         } 
         
-       // print_r($admin);
+        print_r($admin);
         echo json_encode($admin);
         # code...
     }
     else {
         http_response_code(404);
     }
+    
+    echo "tokoss";
 
 ?>
