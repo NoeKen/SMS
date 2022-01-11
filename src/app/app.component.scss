@@ -16,15 +16,15 @@ mat-sidenav {
 }
 
 .content {
-  height: calc(100vh - 95px );
+  height: calc(100vh - 100px );
   margin: 16px;
   margin-left: 32px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  // display: flex;
+  // justify-content: center;
+  // align-items: center;
 
-  font-size: 2rem;
-  color: lightgray;
+  // font-size: 2rem;
+  // color: lightgray;
   border-radius: 10px;
   background-color: aliceblue;
 }
@@ -61,12 +61,12 @@ mat-sidenav-container {
 
 .name {
   margin-top: 8px;
-  font-weight: normal;
+  font-weight: calc(0.2rem + 1vw);
 }
 
 .designation {
-  margin-top: 2px;
-  font-size: 0.7rem;
+  // margin-top: 2px;
+  font-size: calc(0.1rem + 0.6vw);
   color: lightgrey;
 }
 

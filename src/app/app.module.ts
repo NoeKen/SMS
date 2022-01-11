@@ -12,6 +12,10 @@ import { PersonsModule } from './persons/persons.module';
 import { StructuresModule } from './structures/structures.module';
 import { RouterModule } from '@angular/router';
 import { AboutComponent } from './about/about.component';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+
+import { MatIconModule } from '@angular/material/icon';
 
 @NgModule({
   declarations: [
@@ -25,13 +29,16 @@ import { AboutComponent } from './about/about.component';
     MaterialModule,
     MDBBootstrapModule,
     MDBRootModule,
+    ReactiveFormsModule,
+    MatIconModule,
   //Classes modules
     AcademicsModule,
     AuthenticationModule,
     DisplayModule,
     PersonsModule,
     StructuresModule,
-
+    FormsModule,
+    NgbModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
