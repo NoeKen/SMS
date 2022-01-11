@@ -2,22 +2,22 @@
     
     require 'connect.php';
     error_reporting(E_ERROR);
-    $teacher = [];
-    $sql = "SELECT + FROM enseignant";
+    $notes = [];
+    $sql = "SELECT + FROM notes";
 
     if ($result = mysqli_query($con, $sql)) {
         $cr = 0;
         while ($row = mysqli_fetch_assoc($result)) {
-            $teacher[$cr]['id_matiere'] = $row['id_matiere'];
-            $teacher[$cr]['nom'] = $row['nom'];
-            $teacher[$cr]['tel'] = $row['tel'];
-           // $teacher[$cr]['age'] = $row['age'];
+            $notes[$cr]['id_note'] = $row['id_note'];
+            $notes[$cr]['id_matiere'] = $row['id_matiere'];
+            $notes[$cr]['value'] = $row['value'];
+           // $notes[$cr]['age'] = $row['age'];
             $cr++;
             # code...
         } 
         
-       // print_r($teacher);
-        echo json_encode($teacher);
+       // print_r($notes);
+        echo json_encode($notes);
         # code...
     }
     else {
