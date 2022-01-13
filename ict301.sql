@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Jan 10, 2022 at 11:40 AM
+-- Generation Time: Jan 10, 2022 at 03:32 PM
 -- Server version: 10.4.10-MariaDB
 -- PHP Version: 7.3.12
 
@@ -33,6 +33,7 @@ CREATE TABLE IF NOT EXISTS `adminstratif` (
   `id_admin` int(20) NOT NULL AUTO_INCREMENT,
   `tel` bigint(20) NOT NULL,
   `name` varchar(255) NOT NULL,
+  `image` varchar(100) NOT NULL,
   PRIMARY KEY (`id_admin`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
