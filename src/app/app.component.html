@@ -12,8 +12,10 @@
     School
   </div>
   <div class="auth-option">
-    <button mat-button class="menu-button" routerLink="signin"> Login</button>
-    <button mat-button class="menu-button" routerLink="register"> Signup</button>
+    <button mat-button class="menu-button" *ngIf="loginbtn" routerLink="signin" routerLinkActive="active"> Login</button>
+    <button mat-button class="menu-button" *ngIf="loginbtn" routerLink="register" routerLinkActive="active"> Signup</button>
+    <button mat-button class="menu-button" *ngIf="logoutbtn" class="btn btn-danger btn-block" (click)="logout()">logout</button>
+
   </div>
 
 </mat-toolbar>

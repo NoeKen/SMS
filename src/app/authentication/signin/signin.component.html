@@ -1,1 +1,25 @@
-<p>signin works!</p>
+<h2 class="text-center">Login</h2>
+<div class="row">
+    <div class="col-md-3">
+    </div>
+    <div class="col-md-6 col-md-offset-3">
+        <div class="jumbotron">
+            <form [formGroup]="angForm" (ngSubmit)="postdata(angForm)" autocomplete="off" >
+                <div class="form-group">
+                    <label for="name">User Name</label>
+                    <input type="name" name="name" formControlName="name" autocomplete="off" class="form-control input-sm" placeholder="Username">
+ 
+                </div>
+                <div class="form-group">
+                    <label for="Password">Password</label>
+                    <input type="password" name="Password" formControlName="password"  autocomplete="off" class="form-control input-sm" placeholder="Password">
+ 
+                </div>
+                <button type="submit" class="btn btn-primary" [disabled]="!angForm.valid">Login</button>
+            </form>
+        </div>
+    </div>
+    <div class="col-md-3">
+    </div>
+ 
+</div>

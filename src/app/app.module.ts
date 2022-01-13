@@ -6,12 +6,15 @@ import { MaterialModule } from 'src/extensions/mdbootstrap.module';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AcademicsModule } from './academics/academics.module';
-import { AuthenticationModule } from './authentication/authentication.module';
 import { DisplayModule } from './display/display.module';
 import { PersonsModule } from './persons/persons.module';
 import { StructuresModule } from './structures/structures.module';
 import { RouterModule } from '@angular/router';
 import { AboutComponent } from './about/about.component';
+import { ReactiveFormsModule, FormsModule,FormBuilder } from '@angular/forms';
+import { AuthenticationModule } from './authentication/authentication.module';
+import { HttpClientModule } from '@angular/common/http';
+
 
 @NgModule({
   declarations: [
@@ -25,12 +28,16 @@ import { AboutComponent } from './about/about.component';
     MaterialModule,
     MDBBootstrapModule,
     MDBRootModule,
+    ReactiveFormsModule,
+    FormsModule,
+    RouterModule,
   //Classes modules
     AcademicsModule,
     AuthenticationModule,
     DisplayModule,
     PersonsModule,
     StructuresModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

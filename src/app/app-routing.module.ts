@@ -18,8 +18,7 @@ import { PersonnelComponent } from './persons/personnel/personnel.component';
 // import { StudentsComponent } from './persons/students/students.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'signin', pathMatch: 'full' },
-  { path:'classes',component: ClassesComponent },
+  { path: '', redirectTo: 'register', pathMatch: 'full' },
   { path:'classes',component: ClassesComponent },
   { path: 'class', component: ClassesComponent },
   { path: 'personels', component: PersonnelComponent },
@@ -31,6 +30,7 @@ const routes: Routes = [
   { path: 'about', component: AboutComponent },
   { path: 'signin', component: SigninComponent },
   { path: 'register', component: RegisterComponent },
+
 ];
 
 @NgModule({
