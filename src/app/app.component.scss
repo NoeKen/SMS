@@ -19,9 +19,11 @@ mat-sidenav {
   height: calc(100vh - 100px );
   margin: 16px;
   margin-left: 32px;
+  scroll-behavior: auto;
   // display: flex;
   // justify-content: center;
   // align-items: center;
+  overflow-y: scroll;
 
   // font-size: 2rem;
   // color: lightgray;

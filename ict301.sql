@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.2
+-- version 5.0.2
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1:3306
--- Generation Time: Jan 05, 2022 at 03:18 PM
--- Server version: 10.4.10-MariaDB
--- PHP Version: 7.3.12
+-- Hôte : 127.0.0.1:3306
+-- Généré le : lun. 17 jan. 2022 à 09:15
+-- Version du serveur :  5.7.31
+-- Version de PHP : 7.3.21
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -19,26 +18,37 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `ict301`
+-- Base de données : `ict301`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `adminstratif`
+-- Structure de la table `adminstratif`
 --
 
 DROP TABLE IF EXISTS `adminstratif`;
 CREATE TABLE IF NOT EXISTS `adminstratif` (
-  `nom` varchar(20) NOT NULL,
+  `id_admin` int(20) NOT NULL AUTO_INCREMENT,
   `tel` bigint(20) NOT NULL,
-  PRIMARY KEY (`nom`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `name` varchar(255) NOT NULL,
+  `password` varchar(50) NOT NULL,
+  `email` varchar(30) DEFAULT NULL,
+  PRIMARY KEY (`id_admin`) USING BTREE,
+  UNIQUE KEY `id_admin` (`id_admin`) USING BTREE
+) ENGINE=InnoDB AUTO_INCREMENT=29 DEFAULT CHARSET=latin1;
+
+--
+-- Déchargement des données de la table `adminstratif`
+--
+
+INSERT INTO `adminstratif` (`id_admin`, `tel`, `name`, `password`, `email`) VALUES
+(28, 697606274, 'Noe', '123456789', 'kenfaclnoe@gmail.com');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `bulletin`
+-- Structure de la table `bulletin`
 --
 
 DROP TABLE IF EXISTS `bulletin`;
@@ -50,7 +60,7 @@ CREATE TABLE IF NOT EXISTS `bulletin` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `classe`
+-- Structure de la table `classe`
 --
 
 DROP TABLE IF EXISTS `classe`;
@@ -68,24 +78,24 @@ CREATE TABLE IF NOT EXISTS `classe` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `eleve`
+-- Structure de la table `eleve`
 --
 
 DROP TABLE IF EXISTS `eleve`;
 CREATE TABLE IF NOT EXISTS `eleve` (
   `Nom` varchar(20) NOT NULL,
   `Matricule` varchar(20) NOT NULL,
-  `pension` varchar(11) NOT NULL,
   `class_id` int(11) NOT NULL,
+  `id_pension` varchar(10) NOT NULL,
   PRIMARY KEY (`Matricule`),
-  KEY `eleve_id_pension_fr` (`pension`),
-  KEY `eleve_id_class_fr` (`class_id`)
+  KEY `eleve_id_class_fr` (`class_id`),
+  KEY `eleve_id_pension_fr` (`id_pension`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `enseignant`
+-- Structure de la table `enseignant`
 --
 
 DROP TABLE IF EXISTS `enseignant`;
@@ -100,7 +110,7 @@ CREATE TABLE IF NOT EXISTS `enseignant` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `etablissement`
+-- Structure de la table `etablissement`
 --
 
 DROP TABLE IF EXISTS `etablissement`;
@@ -108,13 +118,15 @@ CREATE TABLE IF NOT EXISTS `etablissement` (
   `nom` varchar(11) NOT NULL,
   `numeroEts` int(11) NOT NULL,
   `ville` varchar(11) NOT NULL,
-  PRIMARY KEY (`nom`)
+  `admin_id` int(11) NOT NULL,
+  PRIMARY KEY (`nom`),
+  KEY `admin_id_fk` (`admin_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `matiere`
+-- Structure de la table `matiere`
 --
 
 DROP TABLE IF EXISTS `matiere`;
@@ -131,19 +143,14 @@ CREATE TABLE IF NOT EXISTS `matiere` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `notes`
+-- Structure de la table `notes`
 --
 
 DROP TABLE IF EXISTS `notes`;
 CREATE TABLE IF NOT EXISTS `notes` (
   `id_note` varchar(11) NOT NULL,
   `id_matiere` varchar(15) NOT NULL,
-  `Seq1` int(11) NOT NULL,
-  `Seq2` int(11) NOT NULL,
-  `Seq3` int(11) NOT NULL,
-  `Seq4` int(11) NOT NULL,
-  `Seq5` int(11) NOT NULL,
-  `Seq6` int(11) NOT NULL,
+  `value` int(11) NOT NULL,
   PRIMARY KEY (`id_note`),
   KEY `note_intitule_id_fr` (`id_matiere`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -151,7 +158,7 @@ CREATE TABLE IF NOT EXISTS `notes` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `pension`
+-- Structure de la table `pension`
 --
 
 DROP TABLE IF EXISTS `pension`;
@@ -162,39 +169,64 @@ CREATE TABLE IF NOT EXISTS `pension` (
   PRIMARY KEY (`id_pension`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+-- --------------------------------------------------------
+
 --
--- Constraints for dumped tables
+-- Structure de la table `sequence`
+--
+
+DROP TABLE IF EXISTS `sequence`;
+CREATE TABLE IF NOT EXISTS `sequence` (
+  `seq_id` int(11) NOT NULL,
+  `id_note` varchar(11) NOT NULL,
+  KEY `sequence_id_note` (`id_note`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Contraintes pour les tables déchargées
 --
 
 --
--- Constraints for table `classe`
+-- Contraintes pour la table `classe`
 --
 ALTER TABLE `classe`
   ADD CONSTRAINT `classe_id_etablissement_fr` FOREIGN KEY (`id_etablissement`) REFERENCES `etablissement` (`nom`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `eleve`
+-- Contraintes pour la table `eleve`
 --
 ALTER TABLE `eleve`
-  ADD CONSTRAINT `eleve_id_class_fr` FOREIGN KEY (`class_id`) REFERENCES `classe` (`class_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `eleve_id_pension_fr` FOREIGN KEY (`id_pension`) REFERENCES `pension` (`id_pension`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `enseignant`
+-- Contraintes pour la table `enseignant`
 --
 ALTER TABLE `enseignant`
   ADD CONSTRAINT `enseignant_id_intitule_fr` FOREIGN KEY (`id_matiere`) REFERENCES `matiere` (`intitule`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `matiere`
+-- Contraintes pour la table `etablissement`
+--
+ALTER TABLE `etablissement`
+  ADD CONSTRAINT `admin_id_fk` FOREIGN KEY (`admin_id`) REFERENCES `adminstratif` (`id_admin`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Contraintes pour la table `matiere`
 --
 ALTER TABLE `matiere`
   ADD CONSTRAINT `matiere_id_bulletin_fr` FOREIGN KEY (`id_bulletin`) REFERENCES `bulletin` (`id_bulletin`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `notes`
+-- Contraintes pour la table `notes`
 --
 ALTER TABLE `notes`
   ADD CONSTRAINT `note_intitule_id_fr` FOREIGN KEY (`id_matiere`) REFERENCES `matiere` (`intitule`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Contraintes pour la table `sequence`
+--
+ALTER TABLE `sequence`
+  ADD CONSTRAINT `sequence_id_note` FOREIGN KEY (`id_note`) REFERENCES `notes` (`id_note`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

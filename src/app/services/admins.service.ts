@@ -1,7 +1,7 @@
 import { Injectable,Output,EventEmitter } from '@angular/core';
 import { map } from 'rxjs/operators';
 import { HttpClient } from '@angular/common/http';
-import { Admin } from './admin';
+import { Admin } from '../interfaces/admin';
 
 @Injectable({
   providedIn: 'root'
