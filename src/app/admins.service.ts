@@ -13,6 +13,11 @@ export class AdminsService {
   @Output() getLoggedInName: EventEmitter<any> = new EventEmitter();
 
   constructor(private http:HttpClient) { }
+
+  public getAmins(){
+    return this.http.get<Admin[]>(this.baseUrl + '/getUsers.php');
+  }
+
   public userlogin(tel, password) {
     return this.http.post<Admin>(this.baseUrl + '/login.php', { tel, password })
         .pipe(map(Admin => {
