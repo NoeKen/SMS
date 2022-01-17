@@ -1,21 +1,15 @@
-import { MainComponent } from './display/main/main.component';
-import { ReportsComponent } from './academics/reports/reports.component';
-import { NotesComponent } from './academics/notes/notes.component';
-import { AssignationComponent } from './academics/assignation/assignation.component';
-import { StudentsComponent } from './persons/students/students.component';
-import { SchoolsComponent } from './structures/schools/schools.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AboutComponent } from './about/about.component';
-// import { AssignationComponent } from './academics/assignation/assignation.component';
-// import { NotesComponent } from './academics/notes/notes.component';
-// import { ReportsComponent } from './academics/reports/reports.component';
+import { AssignationComponent } from './academics/assignation/assignation.component';
+import { NotesComponent } from './academics/notes/notes.component';
+import { ReportsComponent } from './academics/reports/reports.component';
 import { RegisterComponent } from './authentication/register/register.component';
 import { SigninComponent } from './authentication/signin/signin.component';
 import { ClassesComponent } from './classes/classes.component';
-// import { MainComponent } from './display/main/main.component';
+import { MainComponent } from './display/main/main.component';
 import { PersonnelComponent } from './persons/personnel/personnel.component';
-// import { StudentsComponent } from './persons/students/students.component';
+import { StudentsComponent } from './persons/students/students.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'register', pathMatch: 'full' },

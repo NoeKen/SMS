@@ -9,82 +9,303 @@
                 src="https://images.unsplash.com/photo-1497633762265-9d179a990aa6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8c2Nob29sfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60"
                 alt="Sample photo"
                 class="img-fluid"
-                style="border-top-left-radius: .25rem; border-bottom-left-radius: .25rem; height:100%;"
-                
+                style="
+                  border-top-left-radius: 0.25rem;
+                  border-bottom-left-radius: 0.25rem;
+                  height: 100%;
+                "
               />
             </div>
-          <div class="col-xl-6">
-              <div class="card-body p-md-10 ">
-                
-                <form [formGroup]= "registerForm" (ngSubmit)="postdata(registerForm)" autocomplete="off"novalidate class="form">
-                  <!-- <br><br><pre></pre> -->
-
+            <div class="col-xl-6">
+              <div class="card-body p-md-10">
+                <form
+                  [formGroup]="registerForm"
+                  (ngSubmit)="onSubmit()"
+                  autocomplete="off"
+                  novalidate
+                  class="form"
+                >
                   <h1 class="mb-10 text-uppercase">Create Account</h1>
                   <div class="imagePreview" *ngIf="imageURL && imageURL !== ''">
-                    <img [src]="imageURL" class="mx-auto d-block image rounded-circle" [alt]="registerForm.value.name" >
+                    <img
+                      [src]="imageURL"
+                      class="mx-auto d-block image rounded-circle"
+                      [alt]="registerForm.value.name"
+                    />
                   </div>
-                  <input type="file"  accept="image/*" (change)="showPreview($event)" />
-                
-                <div class="row">  
-                  <div class="col-md-6 mb-4">
-                    <div class="form-outline form-floating">
-                      <input type="text" class="form-control form-control-lg" autocomplete="off" formControlName="name" id="name" placeholder="Enter name" name="name">
-                      <label for="name">Name: </label>
-                    </div>
-                    <div class="alert alert-danger" *ngIf="registerForm.get('name').hasError('required')&& registerForm.get('name').touched">
-                        Please enter a name
-                    </div>
-                    <div class="alert alert-danger" *ngIf="registerForm.get('name').hasError('maxlength') && registerForm.get('name').touched">
-                      maximum 30 characters
-                  </div>
-                  </div>
-                </div>
-                  <!-- <div class="col-md-6 mb-4"> -->
-                    <div class="row">
-                      <div class="col-lg">
+                  <input
+                    type="file"
+                    accept="image/*"
+                    (change)="showPreview($event)"
+                  />
 
-                    <div class="form-outline">
-                      <label for="tel">Telephone: </label>
-                      <div class="input-group">
-                        <span class="input-group-text">+237</span>
-                        <input type="number" class="form-control form-control-lg" autocomplete="off" formControlName="tel" id="name" placeholder="Enter phone number" name="tel">
+                  <div class="row">
+                    <div class="col-lg mb-4">
+                      <div class="form-outline form-floating">
+                        <input
+                          type="text"
+                          class="form-control form-control-lg"
+                          autocomplete="off"
+                          formControlName="name"
+                          id="name"
+                          placeholder="Enter name"
+                          name="name"
+                        />
+                        <label for="name">Name: </label>
                       </div>
-                      
+                      <div
+                        class="alert alert-danger"
+                        *ngIf="
+                          registerForm.get('name').hasError('required') &&
+                          registerForm.get('name').touched
+                        "
+                      >
+                        Please enter a name
+                      </div>
+                      <div
+                        class="alert alert-danger"
+                        *ngIf="
+                          registerForm.get('name').hasError('maxlength') &&
+                          registerForm.get('name').touched
+                        "
+                      >
+                        maximum 30 characters
+                      </div>
                     </div>
                   </div>
-                  
 
-                  <!-- </div> -->
-                </div>
-              
-<br>
-                <div class="row">
-                  <div class="col-md-6 mb-4">
-                    <div class="form-outline form-floating">
-                      <input type="password" class="form-control form-control-lg" id="pwd" formControlName="password" placeholder="Enter password" name="pswd">
-                      <label for="pwd">Password: </label>
+                  <div class="row">
+                    <div class="col-lg mb-4">
+                      <div class="form-outline form-floating">
+                        <input
+                          type="email"
+                          class="form-control form-control-lg"
+                          autocomplete="off"
+                          formControlName="email"
+                          id="email"
+                          placeholder="Enter email"
+                          name="email"
+                        />
+                        <label for="email">Email: </label>
+                      </div>
+                      <div
+                        class="alert alert-danger"
+                        *ngIf="
+                          registerForm.get('email').hasError('required') &&
+                          registerForm.get('email').touched
+                        "
+                      >
+                        Please enter your email
+                      </div>
+
+                      <div
+                        class="alert alert-danger"
+                        *ngIf="
+                          registerForm.get('email').hasError('email') &&
+                          registerForm.get('email').touched
+                        "
+                      >
+                        Email is not available
+                      </div>
                     </div>
                   </div>
-                  <div class="alert alert-danger" *ngIf="registerForm.get('password').hasError('required')&& registerForm.get('password').touched">
-                    Please enter a password
-                </div>
-                <div class="alert alert-danger" *ngIf="registerForm.get('password').hasError('minlength') && registerForm.get('password').touched">
-                  minimum 6 characters
-              </div>
-                  
-                </div>
 
-                  <button type="submit" class="btn btn-primary" [disabled]="!registerForm.valid" (click)="submit()">Sign Up</button>
-               
-              </form>
+                  <div class="row">
+                    <div class="col-lg">
+                      <div class="form-outline">
+                        <label for="tel">Telephone: </label>
+                        <div class="input-group">
+                          <span class="input-group-text">+237</span>
+                          <input
+                            type="number"
+                            class="form-control form-control-lg"
+                            autocomplete="true"
+                            formControlName="tel"
+                            id="tel"
+                            placeholder="Enter phone number"
+                            name="tel"
+                          />
+                        </div>
+                        <div
+                          class="alert alert-danger"
+                          *ngIf="
+                            registerForm.get('tel').hasError('required') &&
+                            registerForm.get('tel').touched
+                          "
+                        >
+                          Please your number is requiered
+                        </div>
+                        <div
+                          class="alert alert-danger"
+                          *ngIf="
+                            registerForm
+                              .get('tel')
+                              .hasError('minlength') &&
+                            registerForm.get('tel').touched
+                          "
+                        >
+                          minimum 9 characters
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <br />
+
+                  <div class="row">
+                    <div class="col-lg mb-4">
+                      <div class="form-outline form-floating">
+                        <input
+                          type="password"
+                          class="form-control form-control-lg"
+                          id="pwd"
+                          formControlName="password"
+                          placeholder="Enter password"
+                          name="pswd"
+                        />
+                        <label for="pwd">Password: </label>
+                      </div>
+                    </div>
+                    <div
+                      class="alert alert-danger"
+                      *ngIf="
+                        registerForm.get('password').hasError('required') &&
+                        registerForm.get('password').touched
+                      "
+                    >
+                      Please enter a password
+                    </div>
+                    <div
+                      class="alert alert-danger"
+                      *ngIf="
+                        registerForm.get('password').hasError('minlength') &&
+                        registerForm.get('password').touched
+                      "
+                    >
+                      minimum 8 characters
+                    </div>
+                  </div>
+
+                  <button
+                    type="submit"
+                    class="btn btn-primary"
+                    [disabled]="!registerForm.valid"
+                  >
+                    Sign Up
+                  </button>
+                </form>
               </div>
-           </div> 
-          
+            </div>
           </div>
-     
-
         </div>
       </div>
     </div>
   </div>
 </section>
+
+<!-- <h2 class="text-center">Registration</h2>
+<div class="row">
+  <div class="col-md-3"></div>
+  <div class="col-md-6 col-md-offset-3">
+    <div class="jumbotron">
+      <form
+        [formGroup]="registerForm"
+        (ngSubmit)="onSubmit(registerForm)"
+        autocomplete="off"
+      >
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input
+            type="text"
+            name="name"
+            formControlName="name"
+            autocomplete="off"
+            class="form-control input-sm"
+            placeholder="Name"
+          />
+        </div>
+        <div
+          class="alert alert-danger"
+          *ngIf="
+            registerForm.get('name').hasError('required') &&
+            registerForm.get('name').touched
+          "
+        >
+          Please enter a name
+        </div>
+        <div
+          class="alert alert-danger"
+          *ngIf="
+            registerForm.get('name').hasError('maxlength') &&
+            registerForm.get('name').touched
+          "
+        >
+          maximum 30 characters
+        </div>
+
+        <div class="form-group">
+          <label for="email">Tel</label>
+          <input
+            type="email"
+            name="tel"
+            formControlName="tel"
+            autocomplete="off"
+            class="form-control input-sm"
+            placeholder="tel"
+          />
+        </div>
+        <div
+          class="alert alert-danger"
+          *ngIf="
+            registerForm.get('password').hasError('required') &&
+            registerForm.get('password').touched
+          "
+        >
+          Please enter a password
+        </div>
+        <div
+          class="alert alert-danger"
+          *ngIf="
+            registerForm.get('tel').hasError('minlength') &&
+            registerForm.get('tel').touched
+          "
+        >
+          minimum 9 characters
+        </div>
+
+        <div class="form-group">
+          <label for="Password">Password</label>
+          <input
+            type="password"
+            name="Password"
+            formControlName="password"
+            autocomplete="off"
+            class="form-control input-sm"
+            placeholder="Password"
+          />
+        </div>
+        <div
+          class="alert alert-danger"
+          *ngIf="
+            registerForm.get('password').hasError('required') &&
+            registerForm.get('password').touched
+          "
+        >
+          Please enter a password
+        </div>
+        <div
+          class="alert alert-danger"
+          *ngIf="
+            registerForm.get('password').hasError('minlength') &&
+            registerForm.get('password').touched
+          "
+        >
+          minimum 6 characters
+        </div>
+
+        <button type="submit" class="btn btn-success">Register</button>
+      </form>
+    </div>
+  </div>
+  <div class="col-md-3"></div>
+</div> -->

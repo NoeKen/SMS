@@ -13,32 +13,42 @@ import { Router } from '@angular/router';
 })
 export class SigninComponent implements OnInit {
 
-  angForm: FormGroup;
+  loginForm: FormGroup;
   constructor(private fb: FormBuilder,private adminsService: AdminsService,private router:Router) {
-    this.angForm = this.fb.group({
- 
-      name: ['', [Validators.required,Validators.minLength(1)]],
+    this.loginForm = this.fb.group({
+
+      tel: ['', [Validators.required,Validators.minLength(1)]],
       password: ['', Validators.required]
- 
+
     });
    }
   ngOnInit(): void {
+    this.loginForm.reset();
   }
-  postdata(angForm1:FormGroup)
-  {
-    this.adminsService.userlogin(angForm1.value.name,angForm1.value.password)
-      .pipe(first())
-      .subscribe(
-          data => {
-                const redirect = this.adminsService.redirectUrl ? this.adminsService.redirectUrl : '/main';
-                this.router.navigate([redirect]);
- 
-          },
-          error => {
-              alert("User name or password is incorrect")
-          });
+  // postdata(loginForm1:FormGroup)
+  // {
+  //   this.adminsService.userlogin(loginForm1.value.name,loginForm1.value.password)
+  //     .subscribe(
+  //         data => {
+  //               // const redirect = this.adminsService.redirectUrl ? this.adminsService.redirectUrl : '/class';
+  //               this.router.navigate(['class']);
+
+  //         },
+  //         error => {
+  //             alert("User name or password is incorrect")
+  //         });
+  // }
+  onSubmit(){
+    console.log(this.loginForm.value);
+
+    this.adminsService.userlogin(this.loginForm.value.tel, this.loginForm.value.password)
+    .subscribe(
+      data =>{
+        this.router.navigate(['class']);
+      }
+    )
   }
-  get name() { return this.angForm.get('name'); }
-  get password() { return this.angForm.get('password'); }
+  get name() { return this.loginForm.get('tel'); }
+  get password() { return this.loginForm.get('password'); }
 
 }
