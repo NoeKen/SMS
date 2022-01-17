@@ -14,8 +14,11 @@ import { RouterModule } from '@angular/router';
 import { AboutComponent } from './about/about.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { MaterialcmpModule } from './materialcmp/materialcmp.module';
+import { ModalsModule } from './modals/modals.module';
 
 import { MatIconModule } from '@angular/material/icon';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -30,7 +33,10 @@ import { MatIconModule } from '@angular/material/icon';
     MDBBootstrapModule,
     MDBRootModule,
     ReactiveFormsModule,
-    MatIconModule,
+    ModalsModule,
+    FormsModule,
+    // MaterialcmpModule,
+    // MatIconModule,
   //Classes modules
     AcademicsModule,
     AuthenticationModule,
@@ -39,6 +45,7 @@ import { MatIconModule } from '@angular/material/icon';
     StructuresModule,
     FormsModule,
     NgbModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

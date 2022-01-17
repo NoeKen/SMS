@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-
+import { MatDialog } from '@angular/material/dialog';
+import { AddClassComponent } from 'src/app/modals/add-class/add-class.component';
 @Component({
   selector: 'app-classes',
   templateUrl: './classes.component.html',
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ClassesComponent implements OnInit {
 
-  constructor() { }
+  constructor(private dialogRef : MatDialog) { }
 
   ngOnInit(): void {
   }
 
+  openModal(){
+    this.dialogRef.open(AddClassComponent)
+  }
 }

@@ -5,6 +5,7 @@ import { FooterComponent } from './footer/footer.component';
 import { MainComponent } from './main/main.component';
 import { SidenavComponent } from './sidenav/sidenav.component';
 import { RouterModule } from '@angular/router';
+import {MatIconModule} from '@angular/material/icon';
 
 
 @NgModule({
@@ -16,6 +17,7 @@ import { RouterModule } from '@angular/router';
   ],
   imports: [
     CommonModule,
+    MatIconModule,
     // MaterialcmpModule,
     RouterModule
   ],

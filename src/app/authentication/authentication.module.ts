@@ -4,6 +4,7 @@ import { SigninComponent } from './signin/signin.component';
 import { ForgotpwdComponent } from './forgotpwd/forgotpwd.component';
 import { ProfileComponent } from './profile/profile.component';
 import { RegisterComponent } from './register/register.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -15,11 +16,13 @@ import { RegisterComponent } from './register/register.component';
     RegisterComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    ReactiveFormsModule,
+    FormsModule
   ],
   exports: [
     SigninComponent,
-    ForgotpwdComponent
+    ForgotpwdComponent,
   ]
 })
 export class AuthenticationModule { }

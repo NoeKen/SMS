@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from "@angular/forms";
+import { Router } from '@angular/router';
+import { Admin } from 'src/app/admin';
+import { AdminsService } from 'src/app/admins.service';
 
 @Component({
   selector: 'app-signin',
@@ -7,9 +11,38 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SigninComponent implements OnInit {
 
-  constructor() { }
+  loginForm: FormGroup;
+  admin: Admin[];
 
+  constructor(private fb: FormBuilder,private adminsService: AdminsService,private router:Router) {
+    this.loginForm = this.fb.group({
+
+      tel: ['', [Validators.required,Validators.minLength(1)]],
+      password: ['', Validators.required]
+
+    });
+   }
   ngOnInit(): void {
   }
+
+  onSubmit(){
+    console.log(this.loginForm.value);
+
+    this.adminsService.getAmins()
+    .subscribe((data: Admin[])=>{
+      this.admin=data;
+      console.log('================ users : ', this.admin, '=======================');
+
+      if ((this.admin[0].tel === this.loginForm.value.tel) && (this.admin[0].password === this.loginForm.value.password)) {
+        alert('login succed');
+        this.router.navigate(['classes']);
+      }
+      else{
+        alert('Tel or password is incorrect. please check it');
+      }
+    })
+  }
+  get name() { return this.loginForm.get('tel'); }
+  get password() { return this.loginForm.get('password'); }
 
 }
