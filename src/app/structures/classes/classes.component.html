@@ -1,3 +1,4 @@
+<content>
 <h1>list of users</h1>
 
 <div class="header">
@@ -8,6 +9,7 @@
         <th scope="col">Name</th>
         <th scope="col">Email</th>
         <th scope="col">Phone</th>
+        <th scope="col">Token</th>
       </tr>
     </thead>
     <tbody>
@@ -16,10 +18,12 @@
         <td>{{user.name}}</td>
         <td>{{user.email}}</td>
         <td>{{user.tel}}</td>
+        <td>{{user.token}}</td>
       </tr>
     </tbody>
   </table>
-  <button class="mat-raised-button"> new class</button>
+  <button class="mat-raised-button" (click)="openModal()" > new class</button>
   <!-- <mat-icon>icon-name</mat-icon> -->
 </div>
 
+</content>

@@ -21,7 +21,7 @@ export class ClassesComponent implements OnInit {
     private dialogRef : MatDialog) { }
 
   ngOnInit(): void {
-    this.adminService.getAmins()
+    this.adminService.getUsers()
     .subscribe((data: Admin[])=>{
       this.admin=data;
       console.log('================ users : ', this.admin, '=======================');

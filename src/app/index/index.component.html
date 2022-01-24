@@ -1,6 +1,5 @@
-<mat-toolbar  >
-  <div>
-  <button mat-icon-button  >
+<mat-toolbar>
+  <button mat-icon-button *ngIf="sidenav.mode === 'over' " (click)="sidenav.toggle()" >
      <mat-icon *ngIf="!sidenav.opened">
        menu
      </mat-icon>
@@ -8,21 +7,22 @@
        close
      </mat-icon>
   </button>
+  <div>
     <img src="../assets/logo.png" class="logo"  />
     School
   </div>
   <div class="auth-option">
     <button mat-button class="menu-button" *ngIf="loginbtn" routerLink="signin" routerLinkActive="active"> Login</button>
     <button mat-button class="menu-button" *ngIf="loginbtn" routerLink="register" routerLinkActive="active"> Signup</button>
-    <button mat-button class="menu-button" *ngIf="logoutbtn" (click)="logout()">logout</button>
+    <button mat-button class="menu-button" *ngIf="logoutbtn" class="btn btn-danger btn-block" (click)="logout()">logout</button>
 
   </div>
 
 </mat-toolbar>
 
 <mat-sidenav-container>
-  <mat-sidenav mode="over" #sidenav="matSidenav"  class="mat-elevation-z4"   >
-    <img class="avatar mat-elevation-z8" src="../assets/Dorcas.jpeg"   />
+  <mat-sidenav mode="over" #sidenav="matSidenav"  class="mat-elevation-z4">
+    <img class="avatar mat-elevation-z8" src="../assets/Dorcas.jpeg" />
 
     <h4 class="name">Dorcas Oben</h4>
     <h6 class="designation">UI / UX Designer</h6>
@@ -74,7 +74,7 @@
 
   </mat-sidenav>
 
-  <mat-sidenav-content>
+  <mat-sidenav-content >
     <div class="content mat-elevation-z4 alert alert-primary" role="alert">
       <!-- <div routerLink="/authentication">
         Main content
@@ -84,5 +84,3 @@
     </div>
   </mat-sidenav-content>
 </mat-sidenav-container>
-
-<!-- <router-outlet *ngIf="!isLoggedIn" ></router-outlet> -->

@@ -27,6 +27,7 @@ export class RegisterComponent implements OnInit {
     password: '',
     tel: 0,
     email: '',
+    token:'',
     // image: ''
   }
   error = ''
@@ -62,6 +63,7 @@ export class RegisterComponent implements OnInit {
       password: ['', [Validators.required, Validators.minLength(8)]],
     })
   }
+
   showPreview(event) {
     const file = (event.target as HTMLInputElement).files[0]
     this.registerForm.patchValue({

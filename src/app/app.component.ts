@@ -13,11 +13,16 @@ export class AppComponent {
   title = 'School';
   loginbtn:boolean;
   logoutbtn:boolean;
+  isLoggedIn:boolean
 
   @ViewChild(MatSidenav)
   sidenav!: MatSidenav;
 
-  constructor(private observer: BreakpointObserver, private adminsService: AdminsService) {
+  constructor(private observer: BreakpointObserver, public adminsService: AdminsService) {
+    this.isLoggedIn = adminsService.isLoggedIn();
+    console.log('isLoggedIn : ', this.isLoggedIn);
+    console.log('userToken : ', adminsService.getToken());
+
     adminsService.getLoggedInName.subscribe(name => this.changeName(name));
     if(this.adminsService.isLoggedIn())
     {
