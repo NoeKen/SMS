@@ -12,4 +12,5 @@ export class SchoolsComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  panelOpenState = false;
 }

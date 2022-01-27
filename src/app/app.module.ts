@@ -12,6 +12,7 @@ import { PersonsModule } from './persons/persons.module';
 import { StructuresModule } from './structures/structures.module';
 import { RouterModule } from '@angular/router';
 import { AboutComponent } from './about/about.component';
+import { MaterialcmpModule } from './materialcmp/materialcmp.module';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { AboutComponent } from './about/about.component';
     DisplayModule,
     PersonsModule,
     StructuresModule,
+    MaterialcmpModule
   ],
   providers: [],
   bootstrap: [AppComponent]
