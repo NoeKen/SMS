@@ -1,0 +1,65 @@
+// .carousel-contenair {
+//   position: -ms-page;
+// }
+
+.bg-image {
+  background-image: url("../../../assets/UY1.jpg");
+  height: 200%;
+  width: 110%;
+  margin-left: -20px;
+  margin-top: -20px;
+  position: relative;
+  background-repeat: no-repeat;
+  // background-size: cover;
+  overflow: hidden;
+  // .subcalque{
+  //   // align-content: center;
+  //   // justify-content: center;
+  //   background-color: black;
+  //   opacity: 1;
+  // }
+}
+
+.content {
+  position: relative;
+  z-index: 2;
+}
+
+.absolute-bg{
+  width: 100%;
+  background-color: black;
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  opacity: 0.4;
+  z-index: 1;
+}
+// .bg-image {
+//   position: relative;
+//   height: 100vh;
+//   width: 100%;
+//   display: flex;
+//   align-items: center;
+//   justify-content: center;
+// }
+
+// .bg-image::before {
+//     content: "";
+//     background-image: url('https://placekitten.com/1200/800');
+//     background-size: cover;
+//     position: absolute;
+//     top: 0px;
+//     right: 0px;
+//     bottom: 0px;
+//     left: 0px;
+//     opacity: 0.75;
+// }
+
+// h1 {
+// position: relative;
+// color: #ffffff;
+// font-size: 14rem;
+// line-height: 0.9;
+// text-align: center;
+// }

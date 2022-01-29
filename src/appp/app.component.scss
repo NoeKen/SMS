@@ -16,16 +16,29 @@ mat-sidenav {
 }
 
 .content {
+<<<<<<< HEAD:src/appp/app.component.scss
   height: calc(100vh - 100px );
   margin: 16px;
   margin-left: 32px;
   overflow-y: scroll;
+=======
+  height: calc(100vh - 40px );
+  margin: 16px;
+  margin-left: 32px;
+  overflow: hidden;
+  // display: flex;
+  // justify-content: center;
+  // align-items: center;
+
+  // font-size: 2rem;
+  // color: lightgray;
+>>>>>>> 7a1bb407e6b39f3b960c27a3163550080367e5fe:src/app/app.component.scss
   border-radius: 10px;
   background-color: aliceblue;
 }
 
 mat-sidenav-container {
-  height: calc(100vh - 65px ) ;
+  height: calc(100vh) ;
   justify-content: space-between;
 }
 
@@ -56,12 +69,12 @@ mat-sidenav-container {
 
 .name {
   margin-top: 8px;
-  font-weight: normal;
+  font-weight: calc(0.2rem + 1vw);
 }
 
 .designation {
-  margin-top: 2px;
-  font-size: 0.7rem;
+  // margin-top: 2px;
+  font-size: calc(0.1rem + 0.6vw);
   color: lightgrey;
 }
 

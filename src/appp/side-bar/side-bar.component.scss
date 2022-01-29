@@ -16,22 +16,19 @@ mat-sidenav {
 }
 
 .content {
-  height: calc(100vh - 98px );
+  height: calc(100vh - 100px );
   margin: 16px;
   margin-left: 32px;
-  min-width: 300px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  scroll-behavior: auto;
+  // display: flex;
+  // justify-content: center;
+  // align-items: center;
+  overflow-y: scroll;
 
-  font-size: 2rem;
-  color: lightgray;
+  // font-size: 2rem;
+  // color: lightgray;
   border-radius: 10px;
   background-color: aliceblue;
-}
-
-mat-sidenav-content {
-  min-width: 300px;
 }
 
 mat-sidenav-container {
@@ -52,6 +49,10 @@ mat-sidenav-container {
   }
 }
 
+.auth-option{
+  display: flex;
+}
+
 .avatar {
   margin-top: 16px;
   width: 100px;
@@ -62,12 +63,12 @@ mat-sidenav-container {
 
 .name {
   margin-top: 8px;
-  font-weight: normal;
+  font-weight: calc(0.2rem + 1vw);
 }
 
 .designation {
-  margin-top: 2px;
-  font-size: 0.7rem;
+  // margin-top: 2px;
+  font-size: calc(0.1rem + 0.6vw);
   color: lightgrey;
 }
 

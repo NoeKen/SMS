@@ -1,0 +1,29 @@
+<content>
+<h1>list of users</h1>
+
+<div class="header">
+  <table class="class-table table  border-primary">
+    <thead>
+      <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Name</th>
+        <th scope="col">Email</th>
+        <th scope="col">Phone</th>
+        <th scope="col">Token</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="table-active" *ngFor="let user of admin">
+        <th scope="row">{{user.Id}}</th>
+        <td>{{user.name}}</td>
+        <td>{{user.email}}</td>
+        <td>{{user.tel}}</td>
+        <td>{{user.token}}</td>
+      </tr>
+    </tbody>
+  </table>
+  <button class="mat-raised-button" (click)="openModal()" > new class</button>
+  <!-- <mat-icon>icon-name</mat-icon> -->
+</div>
+
+</content>
