@@ -4,14 +4,16 @@
 
 .bg-image {
   background-image: url("../../../assets/UY1.jpg");
-  height: 200%;
-  width: 110%;
+  // height: 200%;
+  // width: 110%;
   margin-left: -20px;
   margin-top: -20px;
+  margin-right: -20px;
   position: relative;
-  background-repeat: no-repeat;
+  height: 100%;
+  background-repeat: inherit;
   // background-size: cover;
-  overflow: hidden;
+  // overflow: hidden;
   // .subcalque{
   //   // align-content: center;
   //   // justify-content: center;

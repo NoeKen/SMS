@@ -1,8 +1,7 @@
-import { Injectable,Output,EventEmitter } from '@angular/core';
-import { map } from 'rxjs/operators';
 import { HttpClient } from '@angular/common/http';
+import { EventEmitter, Injectable, Output } from '@angular/core';
+import { map } from 'rxjs/operators';
 import { Admin } from '../interfaces/admin';
-import { pipe } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -34,15 +33,18 @@ export class AdminsService {
 //             return Admin;
 //         }));
 // }
+
 public getUsers(){
   return this.http.get<Admin[]>(this.baseUrl+'/getUsers.php');
 }
-  public userRegistration(admin:Admin) {
-    return this.http.post(this.baseUrl + '/register.php', admin )
-        .pipe(map((res: any) => {
-          return res['data'];
-        }));
+
+public userRegistration(admin:Admin) {
+  return this.http.post(this.baseUrl + '/register.php', admin )
+      .pipe(map((res: any) => {
+        return res['data'];
+      }));
   }
+
   setToken(token: string) {
     localStorage.setItem('token', token);
   }
