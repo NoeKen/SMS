@@ -19,7 +19,6 @@ export class AppComponent {
   sidenav!: MatSidenav;
 
   constructor(private observer: BreakpointObserver, public adminsService: AdminsService) {
-    this.isLoggedIn = adminsService.isLoggedIn();
     console.log('isLoggedIn : ', this.isLoggedIn);
     console.log('userToken : ', adminsService.getToken());
 
@@ -48,6 +47,7 @@ logout()
 }
 
 ngAfterViewInit(): void {
+  this.sidenav.close();
   this.observer.observe([' (max-width: 800px) ']).subscribe((res)=>{
     if(res.matches){
       this.sidenav.mode='over';

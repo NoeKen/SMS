@@ -1,6 +1,9 @@
 <mat-toolbar  >
   <div>
-  <button mat-icon-button  >
+  <button mat-icon-button
+    *ngIf="this.adminsService.getToken()"
+    (click)="sidenav.toggle()"
+    >
      <mat-icon *ngIf="!sidenav.opened">
        menu
      </mat-icon>
@@ -20,8 +23,8 @@
 
 </mat-toolbar>
 
-<mat-sidenav-container>
-  <mat-sidenav mode="over" #sidenav="matSidenav"  class="mat-elevation-z4"   >
+<mat-sidenav-container >
+  <mat-sidenav mode="over" #sidenav="matSidenav"  class="mat-elevation-z4" >
     <img class="avatar mat-elevation-z8" src="../assets/Dorcas.jpeg"   />
 
     <h4 class="name">Dorcas Oben</h4>

@@ -1,5 +1,5 @@
 <content>
-<h1>list of users</h1>
+<h1>List of classes</h1>
 
 <div class="header">
   <table class="class-table table  border-primary">
@@ -7,18 +7,25 @@
       <tr>
         <th scope="col">Id</th>
         <th scope="col">Name</th>
-        <th scope="col">Email</th>
-        <th scope="col">Phone</th>
-        <th scope="col">Token</th>
+        <th scope="col">Level</th>
+        <!-- <th scope="col">exam</th> -->
+        <th scope="col">Edit</th>
+        <th scope="col">Delete</th>
       </tr>
     </thead>
     <tbody>
-      <tr class="table-active" *ngFor="let user of admin">
-        <th scope="row">{{user.Id}}</th>
-        <td>{{user.name}}</td>
-        <td>{{user.email}}</td>
-        <td>{{user.tel}}</td>
-        <td>{{user.token}}</td>
+      <tr class="table-active" *ngFor="let clas of classes">
+        <th scope="row">{{clas.classId}}</th>
+        <td>{{clas.nom}}</td>
+        <td>{{clas.niveau}}</td>
+        <!-- <td>{{clas.examen}}</td> -->
+        <td>
+          <button class="edit">edit</button>
+        </td>
+        <td>
+          <button class="delete" (click)="delete(clas)" >delete</button>
+        </td>
+
       </tr>
     </tbody>
   </table>
