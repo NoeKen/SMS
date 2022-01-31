@@ -15,15 +15,9 @@ import { DisplayModule } from './display/display.module';
 import { ModalsModule } from './modals/modals.module';
 import { PersonsModule } from './persons/persons.module';
 import { StructuresModule } from './structures/structures.module';
-<<<<<<< HEAD:src/appp/app.module.ts
-import { RouterModule } from '@angular/router';
-import { AboutComponent } from './about/about.component';
-import { MaterialcmpModule } from './materialcmp/materialcmp.module';
-=======
 import { IndexComponent } from './index/index.component';
 
 
->>>>>>> 7a1bb407e6b39f3b960c27a3163550080367e5fe:src/app/app.module.ts
 
 @NgModule({
   declarations: [
@@ -51,7 +45,6 @@ import { IndexComponent } from './index/index.component';
     DisplayModule,
     PersonsModule,
     StructuresModule,
-    MaterialcmpModule
   ],
   providers: [],
   bootstrap: [AppComponent]

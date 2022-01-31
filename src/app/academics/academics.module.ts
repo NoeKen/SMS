@@ -1,4 +1,3 @@
-import { MaterialcmpModule } from './../materialcmp/materialcmp.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NotesComponent } from './notes/notes.component';
@@ -14,8 +13,7 @@ import { ReportsComponent } from './reports/reports.component';
     ReportsComponent
   ],
   imports: [
-    CommonModule,
-    MaterialcmpModule
+    CommonModule
   ],
   exports: [
     ReportsComponent,

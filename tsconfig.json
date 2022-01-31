@@ -18,7 +18,6 @@
     "strictPropertyInitialization": false,
     "moduleResolution": "node",
     "importHelpers": true,
-    "strictPropertyInitialization": false,
     "target": "es2017",
     "noImplicitAny": false,
     "module": "es2020",
