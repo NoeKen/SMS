@@ -1,0 +1,87 @@
+body,
+.container {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+   background: linear-gradient(#60a3bc, #6931d1)  !important;
+    background-image: url("https://media.istockphoto.com/photos/noise-tv-screen-pixels-interfering-signal-picture-id838769888?b=1&k=20&m=838769888&s=170667a&w=0&h=gKOe5EDsh8HLtaNeje6jnF4l7SXk3cIt3eYJ5AV62tQ="), linear-gradient(#60a3bc, #d13531); 
+
+}
+.user_card {
+    height: 400px;
+    width: 350px;
+    margin-top: auto;
+    margin-bottom: auto;
+    background: #002b5c;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    padding: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    -moz-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 20px;
+
+}
+
+.brand_logo_container {
+    position: absolute;
+    height: 120px;
+    width: 120px;
+    top: -75px;
+    border-radius: 50%;
+    background: #60a3bc;
+    // padding: 10px;
+    text-align: center;
+}
+
+.brand_logo {
+    position: absolute;
+    // height: 120px;
+    top: -60px;
+    width: 120px;
+    // border-width: 2px;
+    border-radius: 50%;
+    border: 5px solid #60a3bc;
+    // background: #60a3bc;
+    // text-align: center;
+}
+.form_container {
+    margin-top: 100px;
+}
+.login_btn {
+    width: 100%;
+    background: #c0392b !important;
+    color: white !important;
+}
+.login_btn:focus {
+    box-shadow: none !important;
+    outline: 0px !important;
+}
+.login_container {
+    padding: 0 2rem;
+}
+.input-group-text {
+    background: #c0392b !important;
+    color: white !important;
+    border: 0 !important;
+    border-radius: 0.25rem 0 0 0.25rem !important;
+}
+.icon{
+    height: 50px;
+}
+.input_user,
+.input_pass:focus {
+    box-shadow: none !important;
+    outline: 0px !important;
+}
+.custom-checkbox .custom-control-input:checked~.custom-control-label::before {
+    background-color: #c0392b !important;
+}
+.links{
+    color: antiquewhite;
+}
+.sign{
+    margin-left: 10px;
+}

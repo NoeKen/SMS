@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SchoolsComponent } from './schools/schools.component';
 import { ClassesComponent } from './classes/classes.component';
+import { MatIconModule } from '@angular/material/icon';
 
 
 
@@ -11,7 +12,8 @@ import { ClassesComponent } from './classes/classes.component';
     ClassesComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    MatIconModule,
   ],
   exports: [
     SchoolsComponent,

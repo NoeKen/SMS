@@ -1,1 +1,111 @@
-<p>signin works!</p>
+<div class="container h-100">
+  <div class="d-flex justify-content-center h-100">
+    <div class="user_card ">
+      <div class="d-flex justify-content-center"> -->
+        <div class="logo-card d-flex justify-content-center ">
+          <img src="../assets/logo.png" class="brand_logo" alt="Logo">
+         </div>
+      </div>
+      <div class="d-flex justify-content-center form_container">
+        <form [formGroup]="loginForm"
+        (ngSubmit)="onSubmit()"
+        autocomplete="off">
+          <div class="input-group mb-3">
+            <div class="input-group-append ">
+              <span class="input-group-text icon"><i class="fas fa-mobile-alt "></i></span>
+            </div>
+            <input type="tel" name="tel" formControlName="tel" autocomplete="off" class="form-control input_user" value="" placeholder="tel">
+          </div>
+          <div class="input-group mb-2">
+            <div class="input-group-append">
+              <span class="input-group-text icon"><i class="fas fa-key"></i></span>
+            </div>
+            <input type="password"  name="Password"
+            formControlName="password"
+            autocomplete="off" class="form-control input_pass" value="" placeholder="password">
+          </div>
+          <!-- <div class="form-group">
+            <div class="custom-control custom-checkbox">
+              <input type="checkbox" class="custom-control-input" id="customControlInline">
+              <label class="custom-control-label" for="customControlInline">Remember me</label>
+            </div>
+          </div> -->
+            <div class="d-flex justify-content-center mt-3 login_container">
+         <button type="button" name="button" [disabled]="!loginForm.valid" class="btn login_btn">Login</button>
+         </div>
+        </form>
+      </div>
+  
+      <div class="mt-4">
+        <div class="d-flex justify-content-center links">
+          Don't have an account? <a href="register" class="ml-2 sign"> Sign Up</a>
+        </div>
+        <div class="d-flex justify-content-center links">
+          <a href="#">Forgot your password?</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- <h2 class="text-center">Login</h2>
+
+<div class="row">
+  <div class="col-xl-6">
+    <div class="card-body p-md-10">
+      <div class="user_card">
+        <div class="d-flex justify-content-center">
+          <div class="brand_logo_container">
+            <img src="../assets/logo.png" class="brand_logo" alt="Logo">
+          </div>
+        </div>
+        <div class="d-flex justify-content-center form_container">
+
+      <form
+        [formGroup]="loginForm"
+        (ngSubmit)="onSubmit()"
+        autocomplete="off"
+      >
+      <div class="row">
+        <div class="col-lg mb-4">
+        <div class="input-group mb-3">
+          <div class="input-group-append">
+            <span class="input-group-text"><i class="fas fa-phone-square-alt"></i></span>
+          </div>
+      
+          <input type="tel" name="tel" formControlName="tel" autocomplete="off" class="form-control input-sm"  placeholder="Tel"/>
+        </div>
+        </div>
+      </div>
+
+        <div class="row">
+          <div class="col-lg mb-4">
+        <div class="form-outline">
+          <label for="Password">Password</label>
+          <input
+            type="password"
+            name="Password"
+            formControlName="password"
+            autocomplete="off"
+            class="form-control input-sm"
+            placeholder="Password"
+          />
+        </div>
+          </div>
+        </div>
+        <button type="submit" class="btn btn-success" [disabled]="!loginForm.valid">Login</button>
+      </form>
+    </div>
+
+    </div>
+  </div>
+  <div class="mt-4">
+    <div class="d-flex justify-content-center links">
+      Don't have an account? <a href="#" class="ml-2">Sign Up</a>
+    </div>
+    <div class="d-flex justify-content-center links">
+      <a href="#">Forgot your password?</a>
+    </div>
+  </div>
+  <div class="col-md-5"></div>
+</div> -->

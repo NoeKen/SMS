@@ -1,4 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { AddClassComponent } from 'src/app/modals/add-class/add-class.component';
+import { Admin } from 'src/app/interfaces/admin';
+import { AdminsService } from 'src/app/services/admins.service';
+
+
 
 @Component({
   selector: 'app-classes',
@@ -7,9 +13,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ClassesComponent implements OnInit {
 
-  constructor() { }
+  admin: Admin[];
+
+
+  constructor(
+    private adminService : AdminsService,
+    private dialogRef : MatDialog) { }
 
   ngOnInit(): void {
+    this.adminService.getAmins()
+    .subscribe((data: Admin[])=>{
+      this.admin=data;
+      console.log('================ users : ', this.admin, '=======================');
+    })
   }
 
+  openModal(){
+    this.dialogRef.open(AddClassComponent)
+  }
 }
