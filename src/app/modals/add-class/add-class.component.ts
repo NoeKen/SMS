@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
+import { Router } from '@angular/router';
 import { Class } from 'src/app/interfaces/class';
 import { ClasssesService } from 'src/app/services/classses.service';
 import { PensionComponent } from '../pension/pension.component';
@@ -23,6 +24,7 @@ export class AddClassComponent implements OnInit {
     private paiementRef : MatDialog,
     private formBuilder : FormBuilder,
     private classeService : ClasssesService,
+    private router : Router,
   ) { }
 
   ngOnInit(): void {
@@ -44,7 +46,7 @@ export class AddClassComponent implements OnInit {
     this.classeService
       .addClass(this.classFormGroup.value)
       .subscribe((data) => {
-        // this.router.navigate(['signin']);
+        this.router.navigate(['classes']);
         this.classFormGroup.reset();
 
       })

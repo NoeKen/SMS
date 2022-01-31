@@ -33,11 +33,11 @@ export class ClasssesService {
     return this.http.get<Class[]>(this.baseUrl+ '/listClasses.php');
   }
 
-  deleteClass(id:any){
+  deleteClass(id:number){
+    return this.http.delete<Class[]>(this.baseUrl+ '/deleteClass.php?class_id=' + id)
     // const params = new HttpParams()
     //   .set('id', id.toString());
 
     // return this.http.delete(`${this.baseUrl}/deleteClass.php`, { params: id });
-    return this.http.delete<Class[]>(this.baseUrl+'/deleteClass.php?class_id='+ id)
   }
 }

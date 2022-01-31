@@ -33,7 +33,7 @@ export class ClassesComponent implements OnInit {
     this.dialogRef.open(AddClassComponent)
   }
 
-  delete(classes) {
+  delete(classes : Class) : void {
 
     // try{
     //   this.classeServices.deleteClass(id).subscribe(
