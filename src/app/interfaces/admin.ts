@@ -4,5 +4,6 @@ export interface Admin {
      tel:number;
      password:string;
      email:string;
+     token:string;
     //  image:string;
 }

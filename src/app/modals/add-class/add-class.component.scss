@@ -9,10 +9,10 @@
   text-size-adjust: inherit;
 }
 
-*{
-  background-color: "primary";
+// *{
+//   background-color: "primary";
 
-}
+// }
 
 .forms{
   background-color: aliceblue;
@@ -20,7 +20,7 @@
   padding: 10px;
   margin: -24px;
   color: black;
-  height: calc(80vh - 80px );
+  height: calc(55vh - 60px );
   overflow: auto;
   // font-size: calc(0.5rem + 1vw);
 }
@@ -45,6 +45,7 @@ input{
   border: none;
   padding: 5px;
   border-radius: 7px;
+  background-color: lightgray;
   // justify-content: space-between;
 }
 .divider{
@@ -73,6 +74,11 @@ input{
       height: 18px;
       font-size: 18px;
     }
+  }
+
+  .error{
+    color: blue;
+    font-size: small;
   }
   .cancel{
     background-color: skyblue;

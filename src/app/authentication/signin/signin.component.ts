@@ -36,7 +36,7 @@ export class SigninComponent implements OnInit {
   onSubmit(){
     // console.log(this.loginForm.value);
 
-    this.adminsService.getAmins()
+    this.adminsService.userLogin()
     .subscribe((data: Admin[])=>{
 
       this.admin=data;
@@ -46,9 +46,11 @@ export class SigninComponent implements OnInit {
         if(this.loginForm.value.tel === this.admin[i].tel && this.loginForm.value.password === this.admin[i].password) {
              this.founded=true;
              this.currentUser=this.admin[i];
+             localStorage.setItem('SessionUser: ', JSON.stringify(this.currentUser));
              console.log('====================================');
              console.log('CurrentUser : ', this.currentUser );
              console.log('====================================');
+             this.adminsService.isLoggedIn
           }else{
             // this.founded=false;
             // alert ('Credentials not founded');
@@ -67,5 +69,6 @@ export class SigninComponent implements OnInit {
   }
   get name() { return this.loginForm.get('tel'); }
   get password() { return this.loginForm.get('password'); }
+
 
 }

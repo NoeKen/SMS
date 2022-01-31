@@ -3,7 +3,7 @@
     require 'connect.php';
     error_reporting(E_ERROR);
     $eleve = [];
-    $sql = "SELECT + FROM eleve";
+    $sql = "SELECT * FROM eleve";
 
     if ($result = mysqli_query($con, $sql)) {
         $cr = 0;

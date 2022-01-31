@@ -15,7 +15,7 @@ SET AUTOCOMMIT = 0;
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : lun. 17 jan. 2022 à 09:15
+-- Généré le : lun. 31 jan. 2022 à 09:06
 -- Version du serveur :  5.7.31
 -- Version de PHP : 7.3.21
 
@@ -60,17 +60,25 @@ CREATE TABLE IF NOT EXISTS `adminstratif` (
 =======
   `password` varchar(50) NOT NULL,
   `email` varchar(30) DEFAULT NULL,
+  `token` varchar(300) NOT NULL,
   PRIMARY KEY (`id_admin`) USING BTREE,
-  UNIQUE KEY `id_admin` (`id_admin`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=29 DEFAULT CHARSET=latin1;
+  UNIQUE KEY `id_admin` (`id_admin`) USING BTREE,
+  UNIQUE KEY `token` (`token`)
+) ENGINE=InnoDB AUTO_INCREMENT=34 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `adminstratif`
 --
 
+<<<<<<< HEAD
 INSERT INTO `adminstratif` (`id_admin`, `tel`, `name`, `password`, `email`) VALUES
 (28, 697606274, 'Noe', '123456789', 'kenfaclnoe@gmail.com');
 >>>>>>> 11f00fb5eadb578db6279c4bd9e99235d0914fd1
+=======
+INSERT INTO `adminstratif` (`id_admin`, `tel`, `name`, `password`, `email`, `token`) VALUES
+(32, 697606274, 'Noe', '123456789', 'kenafalnoe@gmail.com', 'ad65abf616cfdbe559effe7c5ed792d9'),
+(33, 695750783, 'Kenfack', '123456789', 'kenfack@gmail.com', '18e215342183143b73c3ecc17b9d2035');
+>>>>>>> bcbd6126dc152a331a09fe204ab2fb5cabe4a847
 
 -- --------------------------------------------------------
 
@@ -101,14 +109,22 @@ CREATE TABLE IF NOT EXISTS `bulletin` (
 DROP TABLE IF EXISTS `classe`;
 CREATE TABLE IF NOT EXISTS `classe` (
   `class_id` int(11) NOT NULL AUTO_INCREMENT,
-  `id_pension` varchar(10) NOT NULL,
-  `id_etablissement` varchar(11) NOT NULL,
+  `id_etablissement` varchar(11) DEFAULT '0',
   `nom` varchar(10) NOT NULL,
-  `niveau` varchar(10) NOT NULL,
+  `niveau` varchar(20) NOT NULL,
+  `id_pension` int(10) NOT NULL,
+  `examen` tinyint(1) NOT NULL DEFAULT '0',
   PRIMARY KEY (`class_id`),
-  KEY `classe_id_pension_fr` (`id_pension`),
-  KEY `classe_id_etablissement_fr` (`id_etablissement`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  KEY `classe_id_pension_fr` (`id_pension`)
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=latin1;
+
+--
+-- Déchargement des données de la table `classe`
+--
+
+INSERT INTO `classe` (`class_id`, `id_etablissement`, `nom`, `niveau`, `id_pension`, `examen`) VALUES
+(9, '0', '6eme 1', 'premier cycle', 14, 0),
+(10, '0', '3e 2', 'premier cycle', 15, 1);
 
 -- --------------------------------------------------------
 
@@ -125,7 +141,7 @@ CREATE TABLE IF NOT EXISTS `eleve` (
   `Nom` varchar(20) NOT NULL,
   `Matricule` varchar(20) NOT NULL,
   `class_id` int(11) NOT NULL,
-  `id_pension` varchar(10) NOT NULL,
+  `id_pension` int(10) NOT NULL,
   PRIMARY KEY (`Matricule`),
   KEY `eleve_id_class_fr` (`class_id`),
   KEY `eleve_id_pension_fr` (`id_pension`)
@@ -222,11 +238,21 @@ CREATE TABLE IF NOT EXISTS `notes` (
 
 DROP TABLE IF EXISTS `pension`;
 CREATE TABLE IF NOT EXISTS `pension` (
-  `id_pension` varchar(10) NOT NULL,
-  `Inscription` double NOT NULL,
-  `scolarite` double NOT NULL,
+  `id_pension` int(10) NOT NULL AUTO_INCREMENT,
+  `Inscription` double DEFAULT '0',
+  `scolarite` double DEFAULT '0',
   PRIMARY KEY (`id_pension`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=latin1;
+
+--
+-- Déchargement des données de la table `pension`
+--
+
+INSERT INTO `pension` (`id_pension`, `Inscription`, `scolarite`) VALUES
+(14, 0, 0),
+(15, 0, 0),
+(16, 0, 0),
+(17, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -261,7 +287,7 @@ CREATE TABLE IF NOT EXISTS `sequence` (
 >>>>>>> 11f00fb5eadb578db6279c4bd9e99235d0914fd1
 --
 ALTER TABLE `classe`
-  ADD CONSTRAINT `classe_id_etablissement_fr` FOREIGN KEY (`id_etablissement`) REFERENCES `etablissement` (`nom`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `classe_id_pension_fr` FOREIGN KEY (`id_pension`) REFERENCES `pension` (`id_pension`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 <<<<<<< HEAD
@@ -271,7 +297,7 @@ ALTER TABLE `classe`
 >>>>>>> 11f00fb5eadb578db6279c4bd9e99235d0914fd1
 --
 ALTER TABLE `eleve`
-  ADD CONSTRAINT `eleve_id_pension_fr` FOREIGN KEY (`id_pension`) REFERENCES `pension` (`id_pension`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `eleve_id_pension` FOREIGN KEY (`id_pension`) REFERENCES `pension` (`id_pension`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 <<<<<<< HEAD

@@ -13,11 +13,15 @@ export class AppComponent {
   title = 'School';
   loginbtn:boolean;
   logoutbtn:boolean;
+  isLoggedIn:boolean
 
   @ViewChild(MatSidenav)
   sidenav!: MatSidenav;
 
-  constructor(private observer: BreakpointObserver, private adminsService: AdminsService) {
+  constructor(private observer: BreakpointObserver, public adminsService: AdminsService) {
+    console.log('isLoggedIn : ', this.isLoggedIn);
+    console.log('userToken : ', adminsService.getToken());
+
     adminsService.getLoggedInName.subscribe(name => this.changeName(name));
     if(this.adminsService.isLoggedIn())
     {
@@ -43,6 +47,7 @@ logout()
 }
 
 ngAfterViewInit(): void {
+  this.sidenav.close();
   this.observer.observe([' (max-width: 800px) ']).subscribe((res)=>{
     if(res.matches){
       this.sidenav.mode='over';

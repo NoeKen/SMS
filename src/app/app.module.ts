@@ -15,6 +15,7 @@ import { DisplayModule } from './display/display.module';
 import { ModalsModule } from './modals/modals.module';
 import { PersonsModule } from './persons/persons.module';
 import { StructuresModule } from './structures/structures.module';
+import { IndexComponent } from './index/index.component';
 
 
 
@@ -22,6 +23,7 @@ import { StructuresModule } from './structures/structures.module';
   declarations: [
     AppComponent,
     AboutComponent,
+    IndexComponent,
   ],
   imports: [
     BrowserModule,

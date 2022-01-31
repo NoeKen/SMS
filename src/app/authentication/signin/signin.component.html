@@ -1,111 +1,70 @@
-<div class="container h-100">
-  <div class="d-flex justify-content-center h-100">
-    <div class="user_card ">
-      <div class="d-flex justify-content-center"> -->
-        <div class="logo-card d-flex justify-content-center ">
-          <img src="../assets/logo.png" class="brand_logo" alt="Logo">
-         </div>
+<!-- <div id="carouselExampleCaptions" class="carousel slide carousel-contenair bg-image" data-bs-ride="carousel">
+  <div class="carousel-indicators">
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+  </div>
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="../../../assets/UCAC.jpg" class="d-block w-100" alt="...">
+      <div class="carousel-caption d-none d-md-block">
+        <h5>First slide label</h5>
+        <p>Some representative placeholder content for the first slide.</p>
       </div>
-      <div class="d-flex justify-content-center form_container">
-        <form [formGroup]="loginForm"
-        (ngSubmit)="onSubmit()"
-        autocomplete="off">
-          <div class="input-group mb-3">
-            <div class="input-group-append ">
-              <span class="input-group-text icon"><i class="fas fa-mobile-alt "></i></span>
-            </div>
-            <input type="tel" name="tel" formControlName="tel" autocomplete="off" class="form-control input_user" value="" placeholder="tel">
-          </div>
-          <div class="input-group mb-2">
-            <div class="input-group-append">
-              <span class="input-group-text icon"><i class="fas fa-key"></i></span>
-            </div>
-            <input type="password"  name="Password"
-            formControlName="password"
-            autocomplete="off" class="form-control input_pass" value="" placeholder="password">
-          </div>
-          <!-- <div class="form-group">
-            <div class="custom-control custom-checkbox">
-              <input type="checkbox" class="custom-control-input" id="customControlInline">
-              <label class="custom-control-label" for="customControlInline">Remember me</label>
-            </div>
-          </div> -->
-            <div class="d-flex justify-content-center mt-3 login_container">
-         <button type="button" name="button" [disabled]="!loginForm.valid" class="btn login_btn">Login</button>
-         </div>
-        </form>
+    </div>
+    <div class="carousel-item">
+      <img src="../../../assets/SA_school.jpg" class="d-block w-100" alt="...">
+      <div class="carousel-caption d-none d-md-block">
+        <h5>Second slide label</h5>
+        <p>Some representative placeholder content for the second slide.</p>
       </div>
-  
-      <div class="mt-4">
-        <div class="d-flex justify-content-center links">
-          Don't have an account? <a href="register" class="ml-2 sign"> Sign Up</a>
-        </div>
-        <div class="d-flex justify-content-center links">
-          <a href="#">Forgot your password?</a>
-        </div>
+    </div>
+    <div class="carousel-item">
+      <img src="../../../assets/UCAC.jpg" class="d-block w-100" alt="...">
+      <div class="carousel-caption d-none d-md-block">
+        <h5>Third slide label</h5>
+        <p>Some representative placeholder content for the third slide.</p>
       </div>
     </div>
   </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div> -->
+<div class="container">
+  <section id="content">
+    <form [formGroup]="loginForm"
+    (ngSubmit)="onSubmit()"
+    autocomplete="off"
+    >
+      <h1>Welcome back</h1>
+      <div>
+        <input type="text"  formControlName="tel"
+        placeholder="tel" name="tel"  autocomplete="off" required="" id="username" />
+        
+      </div>
+      <div>
+        <input type="password" 
+        placeholder="Password" 
+        required="" 
+        name="Password"
+         formControlName="password"
+          autocomplete="off"
+        id="password"
+         />
+      </div>
+      <div>
+        <input 
+        [disabled]="!loginForm.valid" type="submit" value="Log in" />
+        
+      </div>
+    </form><!-- form -->
+    
+  </section><!-- content -->
 </div>
 
-<!-- <h2 class="text-center">Login</h2>
-
-<div class="row">
-  <div class="col-xl-6">
-    <div class="card-body p-md-10">
-      <div class="user_card">
-        <div class="d-flex justify-content-center">
-          <div class="brand_logo_container">
-            <img src="../assets/logo.png" class="brand_logo" alt="Logo">
-          </div>
-        </div>
-        <div class="d-flex justify-content-center form_container">
-
-      <form
-        [formGroup]="loginForm"
-        (ngSubmit)="onSubmit()"
-        autocomplete="off"
-      >
-      <div class="row">
-        <div class="col-lg mb-4">
-        <div class="input-group mb-3">
-          <div class="input-group-append">
-            <span class="input-group-text"><i class="fas fa-phone-square-alt"></i></span>
-          </div>
-      
-          <input type="tel" name="tel" formControlName="tel" autocomplete="off" class="form-control input-sm"  placeholder="Tel"/>
-        </div>
-        </div>
-      </div>
-
-        <div class="row">
-          <div class="col-lg mb-4">
-        <div class="form-outline">
-          <label for="Password">Password</label>
-          <input
-            type="password"
-            name="Password"
-            formControlName="password"
-            autocomplete="off"
-            class="form-control input-sm"
-            placeholder="Password"
-          />
-        </div>
-          </div>
-        </div>
-        <button type="submit" class="btn btn-success" [disabled]="!loginForm.valid">Login</button>
-      </form>
-    </div>
-
-    </div>
-  </div>
-  <div class="mt-4">
-    <div class="d-flex justify-content-center links">
-      Don't have an account? <a href="#" class="ml-2">Sign Up</a>
-    </div>
-    <div class="d-flex justify-content-center links">
-      <a href="#">Forgot your password?</a>
-    </div>
-  </div>
-  <div class="col-md-5"></div>
-</div> -->

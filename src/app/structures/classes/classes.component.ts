@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { Class } from 'src/app/interfaces/class';
 import { AddClassComponent } from 'src/app/modals/add-class/add-class.component';
-import { Admin } from 'src/app/interfaces/admin';
-import { AdminsService } from 'src/app/services/admins.service';
+import { ClasssesService } from 'src/app/services/classses.service';
 
 
 
@@ -13,22 +13,42 @@ import { AdminsService } from 'src/app/services/admins.service';
 })
 export class ClassesComponent implements OnInit {
 
-  admin: Admin[];
-
+  // admin: Admin[];
+  classes : Class[]
 
   constructor(
-    private adminService : AdminsService,
+    // private adminService : AdminsService,
+    private classeServices : ClasssesService,
     private dialogRef : MatDialog) { }
 
   ngOnInit(): void {
-    this.adminService.getAmins()
-    .subscribe((data: Admin[])=>{
-      this.admin=data;
-      console.log('================ users : ', this.admin, '=======================');
+    this.classeServices.getClasses()
+    .subscribe((data: Class[])=>{
+      this.classes=data;
+      console.log('================ Classes : ', this.classes, '=======================');
     })
   }
 
   openModal(){
     this.dialogRef.open(AddClassComponent)
+  }
+
+  delete(classes : Class) : void {
+
+    // try{
+    //   this.classeServices.deleteClass(id).subscribe(
+    //     (res) => {
+    //       this.classes= this.classes.filter(function(item){
+    //         return item['classId'] && +item['classId'] !== +id;
+    //       });
+    //     })}catch(error){
+    //   console.log(error);
+    // }
+    console.log(classes.classId);
+
+    this.classeServices.deleteClass(classes.classId)
+    .subscribe(data =>{
+      this.classes = this.classes.filter(u => u !== classes);
+    })
   }
 }
