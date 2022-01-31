@@ -1,49 +1,107 @@
 <div class="forms">
   <div class="header-component">Add a new class</div>
-  <form>
+  <form
+  [formGroup]="classFormGroup"
+  (ngSubmit)="onSubmit()"
+  autocomplete="off"
+  >
     <div class="input-content">
       <label class="label">Nom</label>
-      <input autocomplete="country" />
+      <input
+        type="text"
+        formControlName="nom"
+        id="nom"
+        placeholder="Enter class name"
+        name="nom"
+      />
     </div>
 
     <div class="divider"></div>
 
-    <div class="input-content">
+    <!-- <div class="input-content">
       <label class="label">Montant Pension</label>
-      <input autocomplete="country" />
-    </div>
+      <input
+        type="number"
+        formControlName= "pension"
+        placeholder="pension value"
+        name="pension"
+        id="pension"
+      />
+    </div> -->
 
     <div class="divider"></div>
 
     <div class="input-content">
       <label class="label">niveau</label>
-      <select  >
+      <select
+        formControlName= "niveau"
+        name="niveau"
+      >
+        <option disabled >select a level</option>
         <option >premier cycle</option>
         <option >second cycle</option>
       </select>
     </div>
+    <div
+    class="alert-danger error"
+    *ngIf="
+      classFormGroup.get('niveau').hasError('required') &&
+      classFormGroup.get('niveau').touched
+    "
+  >
+    Please enter a password
+  </div>
 
     <div class="divider"></div>
 
-    <div class="input-content">
+    <!-- <div class="input-content">
       <label class="label">id-etablissement</label>
       <select disabled >
         <option>Lycee de Bieyem ass</option>
       </select>
-    </div>
+    </div> -->
 
     <div class="input-content">
-      <label class="label">id-etablissement</label>
-      <select disabled >
+      <label class="label">examen class?</label>
+      <!-- <select  >
         <option>Lycee de Bieyem ass</option>
-      </select>
+      </select> -->
+      <div>
+        <input
+          type="radio"
+          id="yes"
+          value= 1
+          name="examen"
+          formControlName= "examen"
+          mdbInput
+        />
+        <label class="form-check-label" for="yes">Yes</label>
+      </div>
+      <div>
+        <input
+          type="radio"
+          id="No"
+          value= 0
+          name="examen"
+          formControlName= "examen"
+          mdbInput
+        />
+        <label class="form-check-label" for="No">No</label>
+      </div>
     </div>
 
     <div class="buttons">
-      <div class="submit mat-button">
+      <button
+      type="submit"
+      class="btn btn-primary"
+      >
         <mat-icon class="submit-button">check</mat-icon>
         submit
-      </div>
+      </button>
+      <!-- <div class="submit mat-button">
+        <mat-icon class="submit-button">check</mat-icon>
+        submit
+      </div> -->
 
       <div class="cancel mat-button">
         <mat-icon class="cancel-button">cancel</mat-icon>

@@ -16,10 +16,10 @@ mat-sidenav {
 }
 
 .content {
-  height: calc(100vh - 40px );
+  height: calc(100vh - 100px );
   margin: 16px;
   margin-left: 32px;
-  overflow: hidden;
+  overflow-y: scroll;
   // display: flex;
   // justify-content: center;
   // align-items: center;
@@ -31,7 +31,7 @@ mat-sidenav {
 }
 
 mat-sidenav-container {
-  height: calc(100vh) ;
+  height: calc(100vh - 65px) ;
   justify-content: space-between;
 }
 
