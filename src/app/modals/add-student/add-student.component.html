@@ -1,1 +1,90 @@
-<p>add-student works!</p>
+<div class="forms">
+    <div class="header-component">Add a new Student</div>
+    <form
+    [formGroup]="studentFormGroup"
+    (ngSubmit)="onSubmit()"
+    autocomplete="off"
+    >
+      <div class="input-content">
+        <label class="label">Nom</label>
+        <input
+          type="text"
+          formControlName="nom"
+          id="nom"
+          placeholder="Enter student name"
+          name="nom"
+        />
+      </div>
+
+      <div class="input-content">
+        <label class="label">Matricule</label>
+        <input
+          type="text"
+          formControlName="matricule"
+          id="matricule"
+          placeholder="Enter student matricule"
+          name="matricule"
+        />
+      </div>
+      <div class="input-content">
+        <label class="label">Class_id</label>
+        <input
+          type="text"
+          formControlName="class_id"
+          id="class_id"
+          placeholder="Enter class_id"
+          name="class_id"
+        />
+      </div>
+      <div class="input-content">
+        <label class="label">Pension_id</label>
+        <input
+          type="text"
+          formControlName="pension_id"
+          id="pension_id"
+          placeholder="Enter pension_id"
+          name="pension_id"
+        />
+      </div>
+  
+      
+  
+      <!-- <div class="input-content">
+        <label class="label">Montant Pension</label>
+        <input
+          type="number"
+          formControlName= "pension"
+          placeholder="pension value"
+          name="pension"
+          id="pension"
+        />
+      </div> -->
+  
+      
+      
+     
+  
+      
+  
+      <div class="buttons">
+        <button
+        type="submit"
+        class="btn btn-primary"
+        >
+          <mat-icon class="submit-button">check</mat-icon>
+          submit
+        </button>
+        <!-- <div class="submit mat-button">
+          <mat-icon class="submit-button">check</mat-icon>
+          submit
+        </div> -->
+  
+        <div class="cancel mat-button">
+          <mat-icon class="cancel-button">cancel</mat-icon>
+          Cancel
+        </div>
+  
+      </div>
+    </form>
+  </div>
+  

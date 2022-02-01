@@ -1,5 +1,4 @@
 <?php
-
 include_once 'connect.php';
 
 $postdata = file_get_contents("php://input");
@@ -17,8 +16,8 @@ if (isset($postdata) && !empty($postdata))
     $pension_id = mysqli_real_escape_string($con , trim ($request->pension_id));
 
 
-        $qry="SELECT * FROM classe WHERE class_id='$class_id'";
-        $qry1="SELECT * FROM pension WHERE pension_id='$pension_id'";
+        $qry="SELECT * FROM classe WHERE class_id=$class_id";
+        $qry1="SELECT * FROM pension WHERE pension_id=$pension_id";
         $result = mysqli_query($qry);
         $res= mysqli_query($qry1);
         $num_rows = mysqli_num_rows($result);
@@ -26,12 +25,13 @@ if (isset($postdata) && !empty($postdata))
 
     if($num_rows > 0 && $num_rows1 > 0){
         http_response_code(201);
-        $sql="INSERT INTO eleve(nom, Matricule, class_id, id_pension)
-        VALUES
-        ('$nom',
-         '$matricule',
-        '$class_id',
-         '$pension_id')";
+        $sql="UPDATE eleve 
+        set nom='$nom',
+        Matricule='$matricule',
+        class_id='$class_id', 
+        id_pension='$pension_id'
+        where class_id='$class_id'
+        ";
         if(mysqli_query($con,$sql)){
             http_response_code(201);
         }
@@ -40,8 +40,8 @@ if (isset($postdata) && !empty($postdata))
         }
     }else{
         http_response_code(422);
-        echo "Eleve ou Pension invalid!!!";
-
+         echo "Eleve ou Pension ID invalid!!!";
     }
 }
+
 ?>

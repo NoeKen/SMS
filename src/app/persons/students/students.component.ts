@@ -1,5 +1,11 @@
+import { Eleve } from './../../interfaces/eleve';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { MatDialog } from '@angular/material/dialog';
+import { AddClassComponent } from 'src/app/modals/add-class/add-class.component';
+import { EleveService } from 'src/app/services/eleve.service';
+import { AddStudentComponent } from 'src/app/modals/add-student/add-student.component';
+
 
 @Component({
   selector: 'app-students',
@@ -9,33 +15,42 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class StudentsComponent implements OnInit {
 
   //Form Validables
-registerForm: FormGroup;
-submitted = false;
-constructor( private formBuilder: FormBuilder){}
-//Add user form actions
-get f() { return this.registerForm.controls; }
+  eleve : Eleve[];
 
-onSubmit() {
-
-  this.submitted = true;
-  // stop here if form is invalid
-  if (this.registerForm.invalid) {
-      return;
-  }
-  //True if all the fields are filled
-  if(this.submitted)
-  {
-    alert("Great!!");
-  }
-
-}
+  constructor(
+    // private adminService : AdminsService,
+    private eleveServices : EleveService,
+    private dialogRef : MatDialog) { }
 
   ngOnInit(): void {
-    //Add User form validations
-    this.registerForm = this.formBuilder.group({
-      email: ['', [Validators.required, Validators.email]],
-      password: ['', [Validators.required]],
-      });
+    this.eleveServices.getEleves()
+    .subscribe((data: Eleve[])=>{
+      this.eleve=data;
+      console.log('================ Eleves : ', this.eleve, '=======================');
+    })
+  }
+
+  openModal(){
+    this.dialogRef.open(AddStudentComponent)
+  }
+
+  delete(eleve : Eleve) : void {
+
+    // try{
+    //   this.classeServices.deleteClass(id).subscribe(
+    //     (res) => {
+    //       this.classes= this.classes.filter(function(item){
+    //         return item['classId'] && +item['classId'] !== +id;
+    //       });
+    //     })}catch(error){
+    //   console.log(error);
+    // }
+    console.log(eleve.nom);
+
+    this.eleveServices.deleteEleve(eleve.nom)
+    .subscribe(data =>{
+      this.eleve = this.eleve.filter(u => u !== eleve);
+    })
   }
 
 }
