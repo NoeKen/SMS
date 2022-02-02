@@ -40,4 +40,12 @@ export class ClasssesService {
 
     // return this.http.delete(`${this.baseUrl}/deleteClass.php`, { params: id });
   }
+
+  getClasseById(id:number){
+    return this.http.get<Class[]>(this.baseUrl+ '/getClasseById.php?class_id=' + id)
+  }
+
+  updateClass(classe:Class){
+    return this.http.put(this.baseUrl+ '/updateClass.php?class_id=' + classe.class_id, classe)
+  }
 }

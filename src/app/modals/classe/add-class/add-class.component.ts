@@ -4,7 +4,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { Class } from 'src/app/interfaces/class';
 import { ClasssesService } from 'src/app/services/classses.service';
-import { PensionComponent } from '../pension/pension.component';
+import { PensionComponent } from '../../pension/pension.component';
 
 @Component({
   selector: 'app-add-class',
@@ -15,7 +15,7 @@ export class AddClassComponent implements OnInit {
 
   classFormGroup : FormGroup
   classe : Class ={
-    classId : 0,
+    class_id : 0,
     nom : '',
     niveau :'',
     examen : 0,
