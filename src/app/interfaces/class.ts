@@ -1,6 +1,7 @@
 export interface Class {
-  classId : number;
+  class_id : number;
   nom : string;
   niveau : string;
   examen : number;
+  id_pension? : number
 }

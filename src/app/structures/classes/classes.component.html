@@ -15,12 +15,12 @@
     </thead>
     <tbody>
       <tr class="table-active" *ngFor="let clas of classes">
-        <th scope="row">{{clas.classId}}</th>
+        <th scope="row">{{clas.class_id}}</th>
         <td>{{clas.nom}}</td>
         <td>{{clas.niveau}}</td>
         <!-- <td>{{clas.examen}}</td> -->
         <td>
-          <button class="btn btn-primary edit">edit</button>
+          <button class="btn btn-primary edit" (click)="edit(clas)" >edit</button>
         </td>
         <td>
           <button class="btn btn-danger delete" (click)="delete(clas)" >delete</button>

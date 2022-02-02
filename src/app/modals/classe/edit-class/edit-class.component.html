@@ -1,0 +1,99 @@
+<div class="forms">
+  <div class="header-component">Edit class</div>
+  <form [formGroup]="classFormGroup" (ngSubmit)="update()" autocomplete="off">
+    <input
+        type="hidden"
+        formControlName="class_id"
+        name="class_id"
+      >
+
+      <input
+        type="hidden"
+        formControlName="id_pension"
+        name="id_pension"
+      >
+
+    <div class="input-content">
+      <label class="label">Nom</label>
+      <input
+        type="text"
+        formControlName="nom"
+        id="nom"
+        placeholder="Enter class name"
+        name="nom"
+      />
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="divider"></div>
+
+    <div class="input-content">
+      <label class="label">niveau</label>
+      <select formControlName="niveau" name="niveau">
+        <option disabled>select a level</option>
+        <option>premier cycle</option>
+        <option>second cycle</option>
+      </select>
+    </div>
+    <div
+      class="alert-danger error"
+      *ngIf="
+        classFormGroup.get('niveau').hasError('required') &&
+        classFormGroup.get('niveau').touched
+      "
+    >
+      Please enter a password
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- <div class="input-content">
+      <label class="label">id-etablissement</label>
+      <select disabled >
+        <option>Lycee de Bieyem ass</option>
+      </select>
+    </div> -->
+
+    <div class="input-content">
+      <label class="label">examen class?</label>
+      <!-- <select  >
+        <option>Lycee de Bieyem ass</option>
+      </select> -->
+      <div>
+        <input
+          type="radio"
+          id="yes"
+          value="1"
+          name="examen"
+          formControlName="examen"
+          mdbInput
+        />
+        <label class="form-check-label" for="yes">Yes</label>
+      </div>
+      <div>
+        <input
+          type="radio"
+          id="No"
+          value="0"
+          name="examen"
+          formControlName="examen"
+          mdbInput
+        />
+        <label class="form-check-label" for="No">No</label>
+      </div>
+    </div>
+
+    <div class="buttons">
+      <button type="submit" class="btn btn-primary" >
+        <mat-icon class="submit-button">check</mat-icon>
+        Edit class
+      </button>
+
+      <a type="cancel" class="btn btn-danger" routerLink="/classes" (click)="cancel()">
+        <mat-icon class="cancel-button">cancel</mat-icon>
+        Cancel
+      </a>
+    </div>
+  </form>
+</div>
