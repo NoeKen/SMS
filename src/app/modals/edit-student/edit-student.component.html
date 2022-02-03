@@ -1,0 +1,68 @@
+<div class="forms">
+    <div class="header-component"><h1>Edit Student</h1></div>
+    <form [formGroup]="studentFormGroup" (ngSubmit)="update()" autocomplete="off">
+      <input
+          type="hidden"
+          formControlName="class_id"
+          name="class_id"
+        >
+  
+        <input
+          type="hidden"
+          formControlName="id_pension"
+          name="id_pension"
+        >
+  
+      <div class="input-content">
+        <label class="label">Nom</label>
+        <input
+          type="text"
+          formControlName="Nom"
+          id="nom"
+          placeholder="Enter student name"
+          name="nom"
+        />
+      </div>
+  
+      <div class="divider"></div>
+  
+      <div class="divider"></div>
+  
+      <div class="input-content">
+        
+        <label class="label">Matricule</label>
+        <input
+          type="text"
+          formControlName="Matricule"
+          id="matricule"
+          placeholder="Enter matricule"
+          name="matricule"
+        />
+      </div>
+      
+  
+      <div class="divider"></div>
+  
+      <!-- <div class="input-content">
+        <label class="label">id-etablissement</label>
+        <select disabled >
+          <option>Lycee de Bieyem ass</option>
+        </select>
+      </div> -->
+  
+     
+  
+      <div class="buttons">
+        <button type="submit" class="btn btn-primary" >
+          <mat-icon class="submit-button">check</mat-icon>
+          Edit class
+        </button>
+  
+        <a type="cancel" class="btn btn-danger" routerLink="/students" (click)="cancel()">
+          <mat-icon class="cancel-button">cancel</mat-icon>
+          Cancel
+        </a>
+      </div>
+    </form>
+  </div>
+  

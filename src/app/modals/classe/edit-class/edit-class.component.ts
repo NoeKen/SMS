@@ -43,8 +43,8 @@ export class EditClassComponent implements OnInit {
     })
     this.classeService.getClasseById(routeParams['id'])
     .subscribe((data:any) =>{
-      console.log(data)
-      this.classFormGroup.patchValue(data);
+      console.log(data);
+      this.classFormGroup.patchValue(data[0]);
     });
 
   }

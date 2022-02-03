@@ -1,6 +1,6 @@
 export interface Eleve {
-    nom:string;
-    matricule:string;
+    Nom:string;
+    Matricule:string;
     class_id : number;
     id_pension: number;
   }

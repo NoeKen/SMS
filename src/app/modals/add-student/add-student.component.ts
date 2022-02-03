@@ -14,8 +14,8 @@ export class AddStudentComponent implements OnInit {
 
   studentFormGroup : FormGroup
   student : Eleve ={
-    nom:'',
-    matricule:'',
+    Nom:'',
+    Matricule:'',
     class_id : 0,
     id_pension: 0,
   }
@@ -28,10 +28,10 @@ export class AddStudentComponent implements OnInit {
 
   ngOnInit(): void {
     this.studentFormGroup = this.formBuilder.group({
-      nom: ['', [Validators.required, Validators.maxLength(15)]],
-      matricule: ['', [Validators.required]],
+      Nom: ['', [Validators.required, Validators.maxLength(15)]],
+      Matricule: ['', [Validators.required]],
       class_id: ['', [Validators.required]],
-      pension_id: ['', [Validators.required]],
+      id_pension: ['', [Validators.required]],
 
       // avatar: [null],
       // password: ['', [Validators.required, Validators.minLength(8)]],
@@ -41,7 +41,8 @@ export class AddStudentComponent implements OnInit {
   /* openPension(){
     this.paiementRef.open(PensionComponent)
   } */
-
+ 
+  
   onSubmit(){
     console.log("new student : ", this.studentFormGroup.value);
     this.eleveService
@@ -53,4 +54,9 @@ export class AddStudentComponent implements OnInit {
       })
 
   }
+  cancel(){
+    this.router.navigate(['students']);
+  }
+ 
+  
 }

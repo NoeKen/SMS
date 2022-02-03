@@ -17,7 +17,7 @@ export class ClassesComponent implements OnInit {
 
   // admin: Admin[];
   classes : Class[];
-  _id: number;
+  class_id: number;
 
   constructor(
     // private adminService : AdminsService,
@@ -51,7 +51,7 @@ export class ClassesComponent implements OnInit {
   edit(classes : Class) : void {
 
     console.log(classes.class_id);
-    this._id = classes.class_id;
-    this.router.navigate(['editClass/' + this._id]);
+    this.class_id = classes.class_id;
+    this.router.navigate(['editClass/' + this.class_id]);
     }
 }

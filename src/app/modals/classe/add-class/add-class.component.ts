@@ -52,4 +52,5 @@ export class AddClassComponent implements OnInit {
       })
 
   }
+  
 }

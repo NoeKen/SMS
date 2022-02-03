@@ -18,13 +18,13 @@
       </thead>
       <tbody>
         <tr class="table-active" *ngFor="let elev of eleve">
-          <th scope="row">{{elev.nom}}</th>
-          <td>{{elev.matricule}}</td>
+          <th scope="row">{{elev.Nom}}</th>
+          <td>{{elev.Matricule}}</td>
           <td>{{elev.class_id}}</td>
           <td>{{elev.id_pension}}</td>
           <!-- <td>{{clas.examen}}</td> -->
           <td>
-            <button class="btn btn-primary edit">edit</button>
+            <button class="btn btn-primary edit" (click)="edit(elev)">edit</button>
           </td>
           <td>
             <button class="btn btn-danger delete" (click)="delete(elev)" >delete</button>

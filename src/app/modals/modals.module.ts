@@ -9,6 +9,7 @@ import { AddStudentComponent } from './add-student/add-student.component';
 import { AddClassComponent } from './classe/add-class/add-class.component';
 import { EditClassComponent } from './classe/edit-class/edit-class.component';
 import { PensionComponent } from './pension/pension.component';
+import { EditStudentComponent } from './edit-student/edit-student.component';
 // import { MaterialcmpModule } from '../materialcmp/materialcmp.module';
 
 
@@ -21,7 +22,8 @@ import { PensionComponent } from './pension/pension.component';
     AddNoteComponent,
     PensionComponent,
     AddPensionComponent,
-    EditClassComponent
+    EditClassComponent,
+    EditStudentComponent
   ],
   imports: [
     CommonModule,

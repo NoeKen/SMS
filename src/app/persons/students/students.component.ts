@@ -1,8 +1,8 @@
 import { Eleve } from './../../interfaces/eleve';
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+//import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
-import { AddClassComponent } from 'src/app/modals/add-class/add-class.component';
 import { EleveService } from 'src/app/services/eleve.service';
 import { AddStudentComponent } from 'src/app/modals/add-student/add-student.component';
 
@@ -16,10 +16,12 @@ export class StudentsComponent implements OnInit {
 
   //Form Validables
   eleve : Eleve[];
+  matricule: string;
 
   constructor(
     // private adminService : AdminsService,
     private eleveServices : EleveService,
+    private router : Router,
     private dialogRef : MatDialog) { }
 
   ngOnInit(): void {
@@ -45,12 +47,18 @@ export class StudentsComponent implements OnInit {
     //     })}catch(error){
     //   console.log(error);
     // }
-    console.log(eleve.nom);
+    console.log(eleve.Matricule);
 
-    this.eleveServices.deleteEleve(eleve.nom)
+    this.eleveServices.deleteEleve(eleve.Matricule)
     .subscribe(data =>{
       this.eleve = this.eleve.filter(u => u !== eleve);
     })
   }
+  edit(eleve : Eleve) : void {
+
+    console.log(eleve.Matricule);
+    this.matricule = eleve.Matricule;
+    this.router.navigate(['editStudent/' + this.matricule]);
+    }
 
 }

@@ -17,6 +17,7 @@ export class EleveService {
 
    }
 
+  
   public addEleve(eleve : Eleve){
     return this.http.put(this.baseUrl + '/addEleve.php', eleve)
     .pipe(map((res: any) => {
@@ -33,8 +34,17 @@ export class EleveService {
     return this.http.get<Eleve[]>(this.baseUrl+ '/listEleve.php');
   }
 
-  deleteEleve(nom:string){
-    return this.http.delete<Eleve[]>(this.baseUrl+ '/deleteEleve.php?nom=' + nom)
+  getEleveById(Matricule: String){
+    return this.http.get<Eleve[]>(this.baseUrl+ '/getEleveById.php?Matricule=' + Matricule);
+  }
+
+  updateEleve(eleve : Eleve) {
+    return this.http.put(this.baseUrl+ '/updateEleve.php?Matricule=' + eleve.Matricule, eleve);
+    
+}
+
+  deleteEleve(matricule:string){
+    return this.http.delete<Eleve[]>(this.baseUrl+ '/deleteEleve.php?Matricule=' + matricule);
     // const params = new HttpParams()
     //   .set('id', id.toString());
 

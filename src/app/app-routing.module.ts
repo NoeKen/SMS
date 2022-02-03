@@ -8,6 +8,7 @@ import { RegisterComponent } from './authentication/register/register.component'
 import { SigninComponent } from './authentication/signin/signin.component';
 import { MainComponent } from './display/main/main.component';
 import { EditClassComponent } from './modals/classe/edit-class/edit-class.component';
+import {EditStudentComponent} from './modals/edit-student/edit-student.component';
 import { PersonnelComponent } from './persons/personnel/personnel.component';
 import { StudentsComponent } from './persons/students/students.component';
 import { AuthGuardServiceGuard } from './services/auth-guard-service.guard';
@@ -24,6 +25,7 @@ const routes: Routes = [
   { path: 'main', component: MainComponent, canActivate: [AuthGuardServiceGuard] },
   { path: 'about', component: AboutComponent, canActivate: [AuthGuardServiceGuard] },
   { path: 'editClass/:id', component: EditClassComponent, canActivate: [AuthGuardServiceGuard] },
+  { path: 'editStudent/:Matricule', component: EditStudentComponent, canActivate: [AuthGuardServiceGuard] },
   { path: 'signin', component: SigninComponent },
   { path: 'register', component: RegisterComponent},
   // { path: 'index', component: RegisterComponent, canActivate: [AuthGuardServiceGuard] },

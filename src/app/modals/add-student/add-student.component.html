@@ -3,13 +3,14 @@
     <form
     [formGroup]="studentFormGroup"
     (ngSubmit)="onSubmit()"
+    (ngReset)="cancel()"
     autocomplete="off"
     >
       <div class="input-content">
         <label class="label">Nom</label>
         <input
           type="text"
-          formControlName="nom"
+          formControlName="Nom"
           id="nom"
           placeholder="Enter student name"
           name="nom"
@@ -20,7 +21,7 @@
         <label class="label">Matricule</label>
         <input
           type="text"
-          formControlName="matricule"
+          formControlName="Matricule"
           id="matricule"
           placeholder="Enter student matricule"
           name="matricule"
@@ -29,7 +30,7 @@
       <div class="input-content">
         <label class="label">Class_id</label>
         <input
-          type="text"
+          type="number"
           formControlName="class_id"
           id="class_id"
           placeholder="Enter class_id"
@@ -39,8 +40,8 @@
       <div class="input-content">
         <label class="label">Pension_id</label>
         <input
-          type="text"
-          formControlName="pension_id"
+          type="number"
+          formControlName="id_pension"
           id="pension_id"
           placeholder="Enter pension_id"
           name="pension_id"
@@ -66,7 +67,7 @@
   
       
   
-      <div class="buttons">
+      
         <button
         type="submit"
         class="btn btn-primary"
@@ -78,13 +79,19 @@
           <mat-icon class="submit-button">check</mat-icon>
           submit
         </div> -->
-  
-        <div class="cancel mat-button">
+        <button
+        type="reset"
+        class="btn btn-danger"
+        >
           <mat-icon class="cancel-button">cancel</mat-icon>
           Cancel
-        </div>
+        </button>
+       <!--  <a type="cancel" class="btn btn-danger" routerLink="/students" (click)="cancel()">
+          <mat-icon class="cancel-button">cancel</mat-icon>
+          Cancel
+        </a> -->
   
-      </div>
+      
     </form>
   </div>
   
