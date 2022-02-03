@@ -1,9 +1,9 @@
 <?php
 
     require 'connect.php';
-    $nom = $_GET['nom'];
+    $matricule = $_GET['Matricule'];
 
-    echo $sql = "DELETE FROM `eleve` WHERE `nom` = '{$nom}' LIMIT 1";
+    $sql = "DELETE FROM `eleve` WHERE `Matricule` = '{$matricule}' LIMIT 1";
 
     if (mysqli_query($con, $sql)) {
         http_response_code(204);

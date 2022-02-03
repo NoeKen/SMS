@@ -2,8 +2,9 @@
     
     require 'connect.php';
     error_reporting(E_ERROR);
+    $Matricule = $_GET['Matricule'];
     $eleve = [];
-    $sql = "SELECT * FROM eleve";
+    $sql = "SELECT * FROM eleve where  `Matricule` = '{$Matricule}' LIMIT 1 ";
 
     if ($result = mysqli_query($con, $sql)) {
         $cr = 0;

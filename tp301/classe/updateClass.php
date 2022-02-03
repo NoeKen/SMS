@@ -24,39 +24,30 @@ if (isset($postdata) && !empty($postdata))
     //Sanitize
 
     // $id_admin = mysqli_real_escape_string($con , trim ($request->id_admin))
+    $class_id = mysqli_real_escape_string($con , trim ($request->class_id));
     $nom = mysqli_real_escape_string($con , trim ($request->nom));
     $niveau = mysqli_real_escape_string($con , trim ($request->niveau));
     $examen = mysqli_real_escape_string($con , trim ($request->examen));    
-    // $idPension = mysqli_real_escape_string($con , trim ($request->idPension));    
+     $id_pension = mysqli_real_escape_string($con , trim ($request->id_pension));    
 
     //update a pension
-    $sqlPen = " UPDATE `pension` SET id_pension='$idPension' where id_pension='$idPension' ";
-
-    echo json_encode($sqlPen);
-
-    echo $sqlPen;
-
-    if(mysqli_query($con,$sqlPen))
-    {
-        http_response_code(201);
-
-        $lastPenId = mysqli_insert_id($con);
-        echo "Records inserted successfully. Last inserted ID is: " .$lastPenId;
 
         $sqlClass ="UPDATE `classe` 
         SET `nom`='$nom',
         `niveau`='$niveau' ,
-        `examen`='$examen' 
-        `id_pension`='$idPension'
-         where `nom`='$nom'";
+        `examen`='$examen',
+        `id_pension`='$id_pension'
+         where `class_id`='$class_id'";
         if (mysqli_query($con, $sqlClass)){
             http_response_code(201);
         }else{
             http_response_code(422);
+            echo "ERROR: Could not able to execute $sqlClass. " . mysqli_error($con);
+
         }
-    }else{
+    /* }else{
         http_response_code(422);
         echo "ERROR: Could not able to execute $sqlClass. " . mysqli_error($con);
-    }
+    } */
 }
 ?>

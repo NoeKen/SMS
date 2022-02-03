@@ -2,8 +2,10 @@
     
     require 'connect.php';
     error_reporting(E_ERROR);
+    $class_id = ($_GET['class_id'] !== null && (int)$_GET['class_id'] > 0 )? mysqli_real_escape_string($con, (int)$_GET['class_id']) : false ;
+
     $classe = [];
-    $sql = "SELECT * FROM classe";
+    $sql = "SELECT * FROM classe where `class_id`='$class_id'";
 
     if ($result = mysqli_query($con, $sql)) {
         $cr = 0;
