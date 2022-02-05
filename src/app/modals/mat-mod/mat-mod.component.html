@@ -1,0 +1,77 @@
+<div class="forms">
+    <div class="header-component">Add New Subject</div>
+    <form
+    [formGroup]="classFormGroup"
+    (ngSubmit)="onSubmit()"
+    autocomplete="off"
+    >
+      <div class="input-content">
+        <label class="label">intitule</label>
+        <input
+          type="text"
+          formControlName="intitule"
+          id="nom"
+          placeholder="Enter subject name"
+          name="intitule"
+        />
+      </div>
+  
+      <div class="divider"></div>
+  
+      <!-- <div class="input-content">
+        <label class="label">Montant Pension</label>
+        <input
+          type="number"
+          formControlName= "pension"
+          placeholder="pension value"
+          name="pension"
+          id="pension"
+        />
+      </div> -->
+  
+      <div class="divider"></div>
+  
+      <div class="input-content">
+        <label class="label">Coefficient</label>
+        <select
+          formControlName= "niveau"
+          name="niveau"
+        >
+          <option disabled >select a Coef</option>
+          <option >1</option>
+          <option >2</option>
+          <option >3</option>
+          <option >4</option>
+          <option >5</option>
+        </select>
+      </div>
+      <div
+      class="alert-danger error"
+      *ngIf="
+        classFormGroup.get('niveau').hasError('required') &&
+        classFormGroup.get('niveau').touched
+      "
+    >
+      Please enter a password
+    </div>
+  
+      <div class="divider"></div>
+  
+  
+      <div class="buttons">
+        <button
+        type="submit"
+        class="btn btn-primary"
+        >
+          <mat-icon class="submit-button">add</mat-icon>
+          submit
+        </button>
+  
+        <div class="cancel mat-button">
+          <mat-icon class="cancel-button">cancel</mat-icon>
+          Cancel
+        </div>
+  
+      </div>
+    </form>
+  </div>

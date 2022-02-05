@@ -8,6 +8,7 @@ import { AddPensionComponent } from './add-pension/add-pension.component';
 import { AddSchoolComponent } from './add-school/add-school.component';
 import { AddStudentComponent } from './add-student/add-student.component';
 import { PensionComponent } from './pension/pension.component';
+import { MatModComponent } from './mat-mod/mat-mod.component';
 // import { MaterialcmpModule } from '../materialcmp/materialcmp.module';
 
 
@@ -19,7 +20,8 @@ import { PensionComponent } from './pension/pension.component';
     AddSchoolComponent,
     AddNoteComponent,
     PensionComponent,
-    AddPensionComponent
+    AddPensionComponent,
+    MatModComponent
   ],
   imports: [
     CommonModule,
