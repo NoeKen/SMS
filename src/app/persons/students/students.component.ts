@@ -4,7 +4,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
 import { EleveService } from 'src/app/services/eleve.service';
-import { AddStudentComponent } from 'src/app/modals/add-student/add-student.component';
+import { AddStudentComponent } from 'src/app/modals/student/add-student/add-student.component';
 
 
 @Component({
@@ -61,5 +61,12 @@ export class StudentsComponent implements OnInit {
     this.matricule = eleve.Matricule;
     this.router.navigate(['editStudent/' + this.matricule]);
     }
+
+    // edit(classes : Class) : void {
+
+    //   console.log(classes.class_id);
+    //   this._id = classes.class_id;
+    //   this.router.navigate(['editClass/' + this._id]);
+    //   }
 
 }

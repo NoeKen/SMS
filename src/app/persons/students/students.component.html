@@ -1,6 +1,11 @@
 <content>
   <h1>List of students</h1>
-
+  <div>
+    <h2>Classe : </h2>
+    <select>
+      <option>6e</option>
+    </select>
+  </div>
   <div class="header">
     <table class="class-table table  border-primary">
       <thead>
@@ -9,8 +14,8 @@
           <th scope="col">Name</th>
           <th scope="col">Matricule</th>
 
-          <th scope="col">Class_id</th>
-          <th scope="col">Pension_id</th>
+          <!-- <th scope="col">Class_id</th> -->
+          <!-- <th scope="col">Pension_id</th> -->
 
           <!-- <th scope="col">exam</th> -->
           <th scope="col">Edit</th>
@@ -22,8 +27,8 @@
           <th scope="row">{{i+1}}</th>
           <th scope="row">{{elev.Nom}}</th>
           <td>{{elev.Matricule}}</td>
-          <td>{{elev.class_id}}</td>
-          <td>{{elev.id_pension}}</td>
+          <!-- <td>{{elev.class_id}}</td>
+          <td>{{elev.id_pension}}</td> -->
           <!-- <td>{{clas.examen}}</td> -->
           <td>
             <button class="btn btn-primary edit" (click)="edit(elev)">edit</button>

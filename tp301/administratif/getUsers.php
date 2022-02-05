@@ -1,5 +1,5 @@
 <?php
-    require 'connect.php';
+    require "C:\\wamp64\www\\tp301\\connect\\connect.php";
     error_reporting(E_ERROR);
 
     $postdata = file_get_contents('php://input');

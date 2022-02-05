@@ -1,6 +1,6 @@
 <?php
     
-    require 'connect.php';
+    require "C:\\wamp64\www\\tp301\\connect\\connect.php";
     error_reporting(E_ERROR);
     $eleve = [];
     $sql = "SELECT * FROM eleve";
@@ -8,9 +8,9 @@
     if ($result = mysqli_query($con, $sql)) {
         $cr = 0;
         while ($row = mysqli_fetch_assoc($result)) {
-            $eleve[$cr]['nom'] = $row['nom'];
-            $eleve[$cr]['matricule'] = $row['matricule'];
-            $eleve[$cr]['pension'] = $row['pension'];
+            $eleve[$cr]['Nom'] = $row['Nom'];
+            $eleve[$cr]['Matricule'] = $row['Matricule'];
+            $eleve[$cr]['id_pension'] = $row['id_pension'];
             $eleve[$cr]['class_id'] = $row['class_id'];
             $cr++;
             # code...

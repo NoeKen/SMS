@@ -1,6 +1,6 @@
 <?php
 
-include_once 'connect.php';
+require "C:\\wamp64\www\\tp301\\connect\\connect.php";
 
 $postdata = file_get_contents('php://input');
 

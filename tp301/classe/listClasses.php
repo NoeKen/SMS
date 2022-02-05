@@ -1,6 +1,6 @@
 <?php
     
-    require 'connect.php';
+    require "C:\\wamp64\www\\tp301\\connect\\connect.php";
     error_reporting(E_ERROR);
     $classe = [];
     $sql = "SELECT * FROM classe";
@@ -8,7 +8,7 @@
     if ($result = mysqli_query($con, $sql)) {
         $cr = 0;
         while ($row = mysqli_fetch_assoc($result)) {
-            $classe[$cr]['classId'] = $row['class_id'];
+            $classe[$cr]['class_id'] = $row['class_id'];
             $classe[$cr]['nom'] = $row['nom'];
             $classe[$cr]['niveau'] = $row['niveau'];
             $classe[$cr]['examen'] = $row['examen'];

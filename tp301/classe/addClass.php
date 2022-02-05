@@ -2,20 +2,9 @@
 
     
 
-include_once 'connect.php';
+require "C:\\wamp64\www\\tp301\\connect\\connect.php";
 
 $postdata = file_get_contents("php://input");
-
-// echo "Bomjour";
-// $sqlPen = " INSERT INTO `pension` (`Inscription`, `scolarite`) VALUES (,) ";
-
-//     if(mysqli_query($con,$sqlPen)){
-//         $lastPenId = mysqli_insert_id($con);
-//         echo "Records inserted successfully. Last inserted ID is: " .$lastPenId;
-//     }else{
-//     echo "ERROR: Could not able to execute $sql. " . mysqli_error($con);
-// }
-//     // echo json_encode($sqlPen);
 
 if (isset($postdata) && !empty($postdata))
 {
