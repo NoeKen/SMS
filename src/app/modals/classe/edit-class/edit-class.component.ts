@@ -52,11 +52,8 @@ export class EditClassComponent implements OnInit {
   update(){
     console.log("class updated : ", this.classFormGroup.value);
     this.classeService.updateClass(this.classFormGroup.value).subscribe((data) => {
-      this.router.navigate(['classes'])
-    },
-    error => {
-      alert(error);
     })
+    this.router.navigate(['classes']);
   }
 
   cancel(){

@@ -1,1 +1,70 @@
-<p>add-student works!</p>
+<div class="forms">
+  <div class="header-component">Add a new Student</div>
+  <form
+    [formGroup]="studentFormGroup"
+    (ngSubmit)="onSubmit()"
+    (ngReset)="cancel()"
+    autocomplete="off"
+  >
+    <div class="input-content">
+      <label class="label">Nom</label>
+      <input
+        type="text"
+        formControlName="Nom"
+        id="nom"
+        placeholder="Enter student name"
+        name="nom"
+      />
+    </div>
+
+    <div class="input-content">
+      <label class="label">Matricule</label>
+      <input
+        type="text"
+        formControlName="Matricule"
+        id="matricule"
+        placeholder="Enter student matricule"
+        name="matricule"
+      />
+    </div>
+    <div class="input-content">
+      <label class="label">Classe</label>
+      <select formControlName="class_id" name="class_id">
+        <!-- <option disabled >select a level</option> -->
+        <option
+          formControlName="class_id"
+          name="class_id"
+          *ngFor="let clas of classes"
+          value="{{ clas.class_id }}"
+        >
+          {{ clas.nom }}
+        </option>
+        <!-- <option >second cycle</option> -->
+      </select>
+      <!-- <input
+        type="number"
+        formControlName="class_id"
+        id="class_id"
+        placeholder="Enter class_id"
+        name="class_id"
+      /> -->
+    </div>
+
+    <button type="submit" class="btn btn-primary">
+      <mat-icon class="submit-button">check</mat-icon>
+      submit
+    </button>
+    <!-- <div class="submit mat-button">
+        <mat-icon class="submit-button">check</mat-icon>
+        submit
+      </div> -->
+    <button type="reset" class="btn btn-danger">
+      <mat-icon class="cancel-button">cancel</mat-icon>
+      Cancel
+    </button>
+    <!--  <a type="cancel" class="btn btn-danger" routerLink="/students" (click)="cancel()">
+        <mat-icon class="cancel-button">cancel</mat-icon>
+        Cancel
+      </a> -->
+  </form>
+</div>

@@ -5,7 +5,7 @@
   <table class="class-table table  border-primary">
     <thead>
       <tr>
-        <th scope="col">Id</th>
+        <th scope="col">N°</th>
         <th scope="col">Name</th>
         <th scope="col">Level</th>
         <!-- <th scope="col">exam</th> -->
@@ -14,8 +14,8 @@
       </tr>
     </thead>
     <tbody>
-      <tr class="table-active" *ngFor="let clas of classes">
-        <th scope="row">{{clas.class_id}}</th>
+      <tr class="table-active" *ngFor="let clas of classes; let i = index">
+        <th scope="row">{{i+1}}</th>
         <td>{{clas.nom}}</td>
         <td>{{clas.niveau}}</td>
         <!-- <td>{{clas.examen}}</td> -->
