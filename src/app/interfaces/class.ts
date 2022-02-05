@@ -5,3 +5,9 @@ export interface Class {
   examen : number;
   id_pension? : number
 }
+
+export interface Teacher {
+  id ?: number;
+  name : string;
+  tel : number;
+}

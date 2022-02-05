@@ -42,7 +42,7 @@ export class AddClassComponent implements OnInit {
   }
 
   onSubmit(){
-    console.log("new class : ", this.classFormGroup.value);
+    console.log("new class: ", this.classFormGroup.value);
     this.classeService
       .addClass(this.classFormGroup.value)
       .subscribe((data) => {

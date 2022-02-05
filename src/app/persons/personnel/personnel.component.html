@@ -1,1 +1,46 @@
-<p>personnel works!</p>
+<button type="button" class="btn btn-primary" (click)="openPopup()">
+  Add Teacher
+</button>
+<hr />
+
+<h3>Here is the list of techers in the school</h3>
+
+<div
+  class="modal"
+  tabindex="-1"
+  role="dialog"
+  [ngStyle]="{ display: displayStyle }"
+>
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Add A New Teacher</h4>
+      </div>
+      <form
+        action=""
+        method="post"
+        [formGroup]="teacherForm"
+        (ngSubmit)="onSubmit()"
+      >
+        <div class="modal-body">
+          <div>
+            <label for="name">Name : </label>
+            <input type="text" formControlName="name" />
+            <!-- <input type="text" ngModel name="name" #name= "ngModel"> -->
+            <!-- <div class="alert alert-danger" *ngIf="name.touched && |name.valid"></div> -->
+          </div>
+          <div>
+            <label for="telephone">Phone Number : </label>
+            <input type="tel" formControlName="tel" />
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-primary">Save</button>
+          <button type="button" class="btn btn-danger" (click)="closePopup()">
+            Cancel
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
