@@ -16,6 +16,7 @@ import { ModalsModule } from './modals/modals.module';
 import { PersonsModule } from './persons/persons.module';
 import { StructuresModule } from './structures/structures.module';
 import { IndexComponent } from './index/index.component';
+import { jsPDF } from "jspdf";
 
 
 

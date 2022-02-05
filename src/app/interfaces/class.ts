@@ -4,3 +4,9 @@ export interface Class {
   niveau : string;
   examen : number;
 }
+
+export interface Teacher {
+  id ?: number;
+  name : string;
+  tel : number;
+}

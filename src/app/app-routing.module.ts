@@ -12,6 +12,7 @@ import { StudentsComponent } from './persons/students/students.component';
 import { AuthGuardServiceGuard } from './services/auth-guard-service.guard';
 import { ClassesComponent } from './structures/classes/classes.component';
 
+
 const routes: Routes = [
   { path: '', redirectTo: 'signin', pathMatch: 'full' },
   { path:'classes',component: ClassesComponent, canActivate: [AuthGuardServiceGuard] },
