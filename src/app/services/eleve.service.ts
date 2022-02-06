@@ -38,6 +38,10 @@ export class EleveService {
     return this.http.get<Eleve[]>(this.baseUrl+ '/getEleveById.php?Matricule=' + Matricule);
   }
 
+  getEleveByClass(Matricule: String, classe: number){
+    return this.http.get<Eleve[]>(this.baseUrl+ '/getStudentByClass.php?Matricule=' + Matricule+ 'classId='+classe);
+  }
+
   updateEleve(eleve : Eleve) {
     return this.http.put(this.baseUrl+ '/updateEleve.php?Matricule=' + eleve.Matricule, eleve);
 

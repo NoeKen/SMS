@@ -4,6 +4,37 @@
 <hr />
 
 <h3>Here is the list of techers in the school</h3>
+<div class="header">
+  <table class="class-table table border-primary">
+    <thead>
+      <tr>
+        <th scope="col">N°</th>
+        <th scope="col">Name</th>
+        <th scope="col">Tel</th>
+        <!-- <th scope="col">exam</th> -->
+        <th scope="col">Edit</th>
+        <th scope="col">Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="table-active" *ngFor="let ens of enseignant; let i = index">
+        <th scope="row">{{ i + 1 }}</th>
+        <td>{{ ens.nom }}</td>
+        <td>{{ ens.tel }}</td>
+        <!-- <td>{{clas.examen}}</td> -->
+        <td>
+          <button class="btn btn-primary edit" (click)="edit(ens)">edit</button>
+        </td>
+        <td>
+          <button class="btn btn-danger delete" (click)="delete(ens)">
+            delete
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <!-- <mat-icon>icon-name</mat-icon> -->
+</div>
 
 <div
   class="modal"
@@ -17,25 +48,23 @@
         <h4 class="modal-title">Add A New Teacher</h4>
       </div>
       <form
-        action=""
-        method="post"
         [formGroup]="teacherForm"
         (ngSubmit)="onSubmit()"
       >
         <div class="modal-body">
           <div>
             <label for="name">Name : </label>
-            <input type="text" formControlName="name" />
+            <input type="text" formControlName="nom" name="nom" />
             <!-- <input type="text" ngModel name="name" #name= "ngModel"> -->
             <!-- <div class="alert alert-danger" *ngIf="name.touched && |name.valid"></div> -->
           </div>
           <div>
             <label for="telephone">Phone Number : </label>
-            <input type="tel" formControlName="tel" />
+            <input type="tel" formControlName="tel" name="tel"/>
           </div>
         </div>
         <div class="modal-footer">
-          <button type="submit" class="btn btn-primary">Save</button>
+          <button type="submit" class="btn btn-primary">Create</button>
           <button type="button" class="btn btn-danger" (click)="closePopup()">
             Cancel
           </button>

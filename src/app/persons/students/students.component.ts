@@ -5,6 +5,8 @@ import { Router } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
 import { EleveService } from 'src/app/services/eleve.service';
 import { AddStudentComponent } from 'src/app/modals/student/add-student/add-student.component';
+import { Class } from 'src/app/interfaces/class';
+import { ClasssesService } from 'src/app/services/classses.service';
 
 
 @Component({
@@ -16,11 +18,14 @@ export class StudentsComponent implements OnInit {
 
   //Form Validables
   eleve : Eleve[];
+  eleves : Eleve;
+  classes : Class[]
   matricule: string;
 
   constructor(
     // private adminService : AdminsService,
     private eleveServices : EleveService,
+    private classesService : ClasssesService,
     private router : Router,
     private dialogRef : MatDialog) { }
 
@@ -29,13 +34,27 @@ export class StudentsComponent implements OnInit {
     .subscribe((data: Eleve[])=>{
       this.eleve=data;
       console.log('================ Eleves : ', this.eleve, '=======================');
+    });
+
+    this.classesService.getClasses()
+    .subscribe((data: Class[])=>{
+      this.classes=data;
+      console.log('================ Eleves : ', this.eleve, '=======================');
     })
+    this.getStudentByClass(this.eleves);
   }
 
   openModal(){
     this.dialogRef.open(AddStudentComponent)
   }
 
+  getStudentByClass(eleve:Eleve){
+    this.eleveServices.getEleveByClass(eleve.Matricule,eleve.class_id)
+    .subscribe((data: Eleve[])=>{
+      this.eleve=data;
+      console.log('================ Eleves par classe : ', this.eleve, '=======================');
+    })
+  }
   delete(eleve : Eleve) : void {
 
     // try{

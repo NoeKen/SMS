@@ -1,9 +1,9 @@
 <content>
   <h1>List of students</h1>
-  <div>
+  <div >
     <h2>Classe : </h2>
     <select>
-      <option>6e</option>
+      <option *ngFor="let clas of classes">{{clas.nom}}</option>
     </select>
   </div>
   <div class="header">

@@ -21,18 +21,6 @@ export class ClassesComponent implements OnInit {
   classes : Class[];
   _id: number;
 
-  header = [['ID', 'Name', 'Email', 'Profile']]
-
-    tableData = [
-        [1, 'John', 'john@yahoo.com', 'HR'],
-        [2, 'Angel', 'angel@yahoo.com', 'Marketing'],
-        [3, 'Harry', 'harry@yahoo.com', 'Finance'],
-        [4, 'Anne', 'anne@yahoo.com', 'Sales'],
-        [5, 'Hardy', 'hardy@yahoo.com', 'IT'],
-        [6, 'Nikole', 'nikole@yahoo.com', 'Admin'],
-        [7, 'Sandra', 'Sandra@yahoo.com', 'Sales'],
-        [8, 'Lil', 'lil@yahoo.com', 'Sales']
-    ]
 
   constructor(
     // private adminService : AdminsService,
@@ -47,6 +35,8 @@ export class ClassesComponent implements OnInit {
       this.classes=data;
       //console.log('================ Classes : ', this.classes, '=======================');
     })
+
+
   }
 
   openModal(){
